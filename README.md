@@ -6,7 +6,6 @@
 
 - [Requirements](#requirements)
 - [Architecture](#Architecture)
-- [Target](#Target)
     
 ## Requirements
 * iOS 18.0+
@@ -19,12 +18,5 @@
 * MVVM-C Factory
 * Followed TDD approch
 
-## Target
-
-* Production
-* Staging
-* Development
-* UnitTest
-* UITest
 
 
