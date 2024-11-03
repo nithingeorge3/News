@@ -8,44 +8,25 @@
 import SwiftUI
 
 struct LoginView: View {
-    
-    @State private var isLoginTapped = false
+    @ObservedObject var viewModel: LoginViewModel
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                Color.white
-                    .ignoresSafeArea()
-                
-                VStack {
-                    Text("Login")
-                        .font(.title)
-                        .foregroundColor(.black)
-                        .padding()
-                    TextField("Username", text: .constant(""))
-                        .padding()
-                    TextField("Password", text: .constant(""))
-                        .padding()
-                    
-                    Spacer()
-                    Button(action: {
-                        isLoginTapped = true
-                    }) {
-                        Text("Login")
-                    }
-                    .padding()
-                    Spacer()
-                                        
-                    .navigationDestination(isPresented: $isLoginTapped) {
-                        HomeView()
-                    }
-                }
+        VStack {
+            TextField("Username", text: $viewModel.username)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+            SecureField("Password", text: $viewModel.password)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+            Button("Login") {
+                viewModel.login()
             }
-            .navigationTitle("News")
+            .padding()
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    LoginView()
+    LoginView(viewModel: LoginViewModel())
 }
