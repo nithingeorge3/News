@@ -25,6 +25,7 @@
 		28785BA72CD81A6C0044DFAE /* Exceptions for "News" folder in "News" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Application/Scence/Login/LoginCoordinatorTests.swift,
 				Application/Scence/Login/LoginViewModelTests.swift,
 				Info.plist,
 			);
@@ -33,6 +34,7 @@
 		28785BA92CD81A770044DFAE /* Exceptions for "News" folder in "NewsTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Application/Scence/Login/LoginCoordinatorTests.swift,
 				Application/Scence/Login/LoginViewModelTests.swift,
 			);
 			target = 28785B672CD819C20044DFAE /* NewsTests */;

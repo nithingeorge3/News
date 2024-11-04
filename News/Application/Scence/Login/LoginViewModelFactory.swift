@@ -10,15 +10,7 @@ protocol LoginViewModelFactory {
 }
 
 class DefaultLoginViewModelFactory: LoginViewModelFactory {
-    private weak var navigationCoordinator: NavigationCoordinator?
-    
-    init(navigationCoordinator: NavigationCoordinator) {
-        self.navigationCoordinator = navigationCoordinator
-    }
-    
     func makeLoginViewModel() -> LoginViewModel {
-        let viewModel = LoginViewModel()
-        viewModel.navigationCoordinator = navigationCoordinator
-        return viewModel
+        return LoginViewModel()
     }
 }

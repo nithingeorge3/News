@@ -15,12 +15,12 @@ class LoginViewModel: ObservableObject {
     @Published var error: Error?
     @Published var isLoggedIn: Bool = false
     
-    weak var navigationCoordinator: NavigationCoordinator?
+    var onLoginSuccess: (() -> Void)?
     
     func login() {
         // Perform validation or network request
         // For simplicity, assume login is always successful
-        navigationCoordinator?.goToHome()
+        onLoginSuccess?()
     }
     
 }
