@@ -15,12 +15,14 @@ class LoginViewModel: ObservableObject {
     @Published var error: Error?
     @Published var isLoggedIn: Bool = false
     
-    var onLoginSuccess: (() -> Void)?
+    var loginSuccessSubject = PassthroughSubject<Void, Never>()
     
+    var cancellables = Set<AnyCancellable>()
+        
     func login() {
         // Perform validation or network request
         // For simplicity, assume login is always successful
-        onLoginSuccess?()
+        loginSuccessSubject.send()
     }
     
 }

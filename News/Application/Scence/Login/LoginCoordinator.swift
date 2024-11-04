@@ -42,9 +42,13 @@ class LoginCoordinator: BaseCoordinator, ObservableObject {
 
     func makeLoginView() -> some View {
         let viewModel = loginViewModelFactory.makeLoginViewModel()
-        viewModel.onLoginSuccess = { [weak self] in
-            self?.navigate(to: .home)
-        }
+        
+        viewModel.loginSuccessSubject
+            .sink { [weak self] in
+                self?.navigate(to: .home)
+            }
+            .store(in: &viewModel.cancellables)
+        
         return loginViewFactory.makeLoginView(viewModel: viewModel)
     }
 
