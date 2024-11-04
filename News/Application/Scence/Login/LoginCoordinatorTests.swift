@@ -11,7 +11,7 @@ import SwiftUI
 @testable import News
 
 class MockLoginViewModelFactory: LoginViewModelFactory {
-    func makeLoginViewModel() -> LoginViewModel {
+    func makeLoginViewModel() -> any LoginViewModelProtocol {
         let viewModel = LoginViewModel()
         // Configure mock behavior if needed
         return viewModel

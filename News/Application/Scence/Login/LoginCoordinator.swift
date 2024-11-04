@@ -49,7 +49,7 @@ class LoginCoordinator: BaseCoordinator, ObservableObject {
             }
             .store(in: &viewModel.cancellables)
         
-        return loginViewFactory.makeLoginView(viewModel: viewModel)
+        return loginViewFactory.makeLoginView(viewModel: viewModel as! LoginViewModel)
     }
 
     func makeHomeView() -> some View {

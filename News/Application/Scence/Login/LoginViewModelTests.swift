@@ -15,7 +15,6 @@ class LoginViewModelTests: XCTestCase {
         // Arrange
         let mockNavigationCoordinator = MockNavigationCoordinator()
         let viewModel = LoginViewModel()
-        viewModel.navigationCoordinator = mockNavigationCoordinator
         
         // Act
         viewModel.login()

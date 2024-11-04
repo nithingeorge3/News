@@ -6,11 +6,11 @@
 //
 
 protocol LoginViewModelFactory {
-    func makeLoginViewModel() -> LoginViewModel
+    func makeLoginViewModel() -> any LoginViewModelProtocol
 }
 
 class DefaultLoginViewModelFactory: LoginViewModelFactory {
-    func makeLoginViewModel() -> LoginViewModel {
+    func makeLoginViewModel() -> any LoginViewModelProtocol {
         return LoginViewModel()
     }
 }
