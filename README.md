@@ -17,7 +17,7 @@
 Overview
 
 * Architecture: MVVM-C (Model-View-ViewModel-Coordinator)
-* Patterns: Factory Pattern for View and ViewModel creation
+* Patterns: Factory Pattern for Coordinator, View and ViewModel creation
 * Technologies: SwiftUI, Combine, Protocols
 * Testing: Advanced-level unit tests
 * Followed TDD approch
