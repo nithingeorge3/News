@@ -8,14 +8,8 @@
 import SwiftUI
 
 class LoginViewFactory {
-    private let viewModelFactory: LoginViewModelFactory
-    
-    init(viewModelFactory: LoginViewModelFactory) {
-        self.viewModelFactory = viewModelFactory
-    }
-    
-    func makeLoginView() -> some View {
-        let viewModel = viewModelFactory.makeLoginViewModel()
-        return LoginView(viewModel: viewModel)
+    func makeLoginView(viewModel: LoginViewModel) -> some View {
+        LoginView(viewModel: viewModel)
     }
 }
+

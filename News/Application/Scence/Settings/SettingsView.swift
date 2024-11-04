@@ -43,3 +43,7 @@ struct SettingsDetailView: View {
             .navigationTitle(itemTitle)
     }
 }
+
+#Preview {
+    SettingsView()
+}
