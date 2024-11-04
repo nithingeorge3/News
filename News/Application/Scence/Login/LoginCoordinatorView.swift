@@ -25,6 +25,26 @@ struct LoginCoordinatorView: View {
     }
 }
 
+//Testing LoginCoordinatorView
+//To ensure that LoginCoordinatorView works correctly, you can write SwiftUI previews or unit tests
+#Preview {
+    let navigationCoordinator = NavigationCoordinator()
+    let loginViewModelFactory = DefaultLoginViewModelFactory()
+    let loginViewFactory = LoginViewFactory()
+    let homeViewFactory = HomeViewFactory()
+    let homeCoordinatorFactory = DefaultHomeCoordinatorFactory(homeViewFactory: homeViewFactory)
+
+    let loginCoordinator = LoginCoordinator(
+        navigationCoordinator: navigationCoordinator,
+        loginViewModelFactory: loginViewModelFactory,
+        loginViewFactory: loginViewFactory,
+        homeCoordinatorFactory: homeCoordinatorFactory
+    )
+
+    LoginCoordinatorView(coordinator: loginCoordinator)
+
+}
+
 
 //
 //struct LoginCoordinatorView: View {
