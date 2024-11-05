@@ -1,0 +1,45 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Details for %@" : {
+
+    },
+    "Home View" : {
+
+    },
+    "Login Button Title" : {
+      "comment" : "Login button title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se connecter"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login"
+          }
+        }
+      }
+    },
+    "Password" : {
+
+    },
+    "Sidebar" : {
+
+    },
+    "Username" : {
+
+    }
+  },
+  "version" : "1.0"
+}
