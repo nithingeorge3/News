@@ -63,6 +63,9 @@
     "Details for %@" : {
 
     },
+    "Don't have an account?" : {
+
+    },
     "Home View" : {
 
     },
@@ -90,14 +93,77 @@
         }
       }
     },
-    "Password" : {
+    "Login Password placeholder" : {
 
+    },
+    "Login Password placeholder " : {
+      "comment" : "Login Password textfield placeholder",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter your password"
+          }
+        }
+      }
+    },
+    "Login Username placeholder" : {
+
+    },
+    "Login Username placeholder " : {
+      "comment" : "Login enter user name textfield placeholder",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter your username"
+          }
+        }
+      }
+    },
+    "LoginView Title" : {
+      "comment" : "Login view Title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login"
+          }
+        }
+      }
+    },
+    "Password Title" : {
+      "comment" : "Login Password Title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password"
+          }
+        }
+      }
     },
     "Sidebar" : {
 
     },
-    "Username" : {
+    "Sign Up" : {
 
+    },
+    "Username Title" : {
+      "comment" : "Login Username Title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Username"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
