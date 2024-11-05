@@ -8,7 +8,12 @@
 import SwiftUI
 import Combine
 
-struct LoginView: View {
+protocol LoginViewProtocol: View {
+    var viewModel: LoginViewModel { get }
+}
+
+struct LoginView: View, LoginViewProtocol {
+    
     @ObservedObject var viewModel: LoginViewModel
     
     var body: some View {
