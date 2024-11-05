@@ -24,7 +24,7 @@ struct LoginView: View, LoginViewProtocol {
             SecureField("Password", text: $viewModel.password)
                 .textFieldStyle(.roundedBorder)
                 .padding()
-            Button("Login") {
+            Button("Login Button Title") {
                 viewModel.login()
             }
             .padding()
