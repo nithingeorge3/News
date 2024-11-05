@@ -17,19 +17,85 @@ struct LoginView: View, LoginViewProtocol {
     @ObservedObject var viewModel: LoginViewModel
     
     var body: some View {
-        VStack {
-            TextField("Username", text: $viewModel.username)
-                .textFieldStyle(.roundedBorder)
+        VStack(spacing: 20) {
+            Spacer()
+            
+            Text("LoginView Title")
+                .font(.largeTitle)
+                .bold()
+                .padding(.bottom, 40)
+            
+            VStack(alignment: .leading, spacing: 15) {
+                Text("Username Title")
+                    .font(.headline)
+                    .foregroundColor(.black)
+                
+                TextField("Login Username placeholder", text: $viewModel.username)
+                    .padding()
+                    .background(Color(UIColor.systemGray6))
+                    .cornerRadius(8)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                    )
+                
+                Text("Password Title")
+                    .font(.headline)
+                    .foregroundColor(.black)
+                
+                HStack {
+                    if viewModel.isPasswordVisible {
+                        TextField("Login Password placeholder", text: $viewModel.password)
+                    } else {
+                        SecureField("Login Password placeholder", text: $viewModel.password)
+                    }
+                    Button(action: {
+                        viewModel.togglePasswordVisibility()
+                    }) {
+                        Image(systemName: viewModel.isPasswordVisible ? "eye.slash" : "eye")
+                            .foregroundColor(.gray)
+                    }
+                }
                 .padding()
-            SecureField("Password", text: $viewModel.password)
-                .textFieldStyle(.roundedBorder)
-                .padding()
-            Button("Login Button Title") {
-                viewModel.login()
+                .background(Color(UIColor.systemGray6))
+                .cornerRadius(8)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                )
             }
-            .padding()
+            .padding(.horizontal)
+            
+            Button(action: {
+                viewModel.login()
+            }) {
+                Text("Login Button Title")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(8)
+            }
+            .padding(.horizontal)
+            .padding(.top, 20)
+            
+            Spacer()
+            
+            HStack {
+                Text("Don't have an account?")
+                    .foregroundColor(.gray)
+                
+                Button(action: {
+                    // Handle sign up action here
+                }) {
+                    Text("Sign Up")
+                        .foregroundColor(.blue)
+                }
+            }
+            .padding(.bottom, 40)
         }
-        .navigationBarBackButtonHidden(true)
+        .padding()
     }
 }
 

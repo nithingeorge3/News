@@ -14,11 +14,13 @@ protocol LoginViewModelProtocol: ObservableObject {
     var password: String { get set }
     
     // Output
+    var isPasswordVisible: Bool { get  set }
     var isLoginButtonEnabled: Bool { get }
     var isLoggedIn: Bool { get }
     
     // Actions
     func login()
+    func togglePasswordVisibility()
     
     var loginSuccessSubject: PassthroughSubject<Void, Never> { get set }
     
@@ -30,6 +32,8 @@ class LoginViewModel: LoginViewModelProtocol {
     @Published var username: String = ""
     @Published var password: String = ""
     @Published var error: Error?
+    
+    @Published var isPasswordVisible: Bool = false
     @Published var isLoginButtonEnabled: Bool = false
     @Published var isLoggedIn: Bool = false
     
@@ -41,6 +45,10 @@ class LoginViewModel: LoginViewModelProtocol {
         // Perform validation or network request
         // For simplicity, assume login is always successful
         loginSuccessSubject.send()
+    }
+    
+    func togglePasswordVisibility() {
+        isPasswordVisible.toggle()
     }
     
 }
