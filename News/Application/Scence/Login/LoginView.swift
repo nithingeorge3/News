@@ -20,6 +20,7 @@ struct LoginView: View, LoginViewProtocol {
         VStack(spacing: 20) {
             Spacer()
             
+            
             Text("LoginView Title")
                 .font(.largeTitle)
                 .bold()
@@ -83,13 +84,13 @@ struct LoginView: View, LoginViewProtocol {
             Spacer()
             
             HStack {
-                Text("Don't have an account?")
+                Text("Create new account title")
                     .foregroundColor(.gray)
                 
                 Button(action: {
                     // Handle sign up action here
                 }) {
-                    Text("Sign Up")
+                    Text("Sign Up buttton title")
                         .foregroundColor(.blue)
                 }
             }
