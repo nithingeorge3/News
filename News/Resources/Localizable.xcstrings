@@ -60,10 +60,17 @@
         }
       }
     },
-    "Details for %@" : {
-
+    "Create new account title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don't have an account?"
+          }
+        }
+      }
     },
-    "Don't have an account?" : {
+    "Details for %@" : {
 
     },
     "Home View" : {
@@ -94,11 +101,6 @@
       }
     },
     "Login Password placeholder" : {
-
-    },
-    "Login Password placeholder " : {
-      "comment" : "Login Password textfield placeholder",
-      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -109,11 +111,6 @@
       }
     },
     "Login Username placeholder" : {
-
-    },
-    "Login Username placeholder " : {
-      "comment" : "Login enter user name textfield placeholder",
-      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -150,8 +147,15 @@
     "Sidebar" : {
 
     },
-    "Sign Up" : {
-
+    "Sign Up buttton title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign Up"
+          }
+        }
+      }
     },
     "Username Title" : {
       "comment" : "Login Username Title",
