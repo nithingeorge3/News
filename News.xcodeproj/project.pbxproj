@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		289700D92CDB7E890072A42B /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 289700D82CDB7E890072A42B /* KeychainAccess */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		28785B6C2CD819C20044DFAE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -70,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				289700D92CDB7E890072A42B /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +142,7 @@
 			);
 			name = News;
 			packageProductDependencies = (
+				289700D82CDB7E890072A42B /* KeychainAccess */,
 			);
 			productName = News;
 			productReference = 288C47F02CD6B16100F26CF4 /* News.app */;
@@ -172,6 +178,9 @@
 			);
 			mainGroup = 288C47E72CD6B16100F26CF4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				289700D72CDB7E890072A42B /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 288C47F12CD6B16100F26CF4 /* Products */;
 			projectDirPath = "";
@@ -468,6 +477,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		289700D72CDB7E890072A42B /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		289700D82CDB7E890072A42B /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 289700D72CDB7E890072A42B /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 288C47E82CD6B16100F26CF4 /* Project object */;
 }
