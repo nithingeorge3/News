@@ -7,65 +7,20 @@
 
 import SwiftUI
 
-//@main
-//struct NewsApp: App {
-//    var body: some Scene {
-//        WindowGroup {
-//            ContentView()
-//        }
-//    }
-//}
-
-
-//@main
-//struct MyApp: App {
-//    private let loginCoordinator: LoginCoordinator
-//
-//    init() {
-//        let loginViewModelFactory = DefaultLoginViewModelFactory()
-//        let homeViewModelFactory = DefaultHomeViewModelFactory()
-//        let homeViewFactory = HomeViewFactory(viewModelFactory: homeViewModelFactory)
-//        self.loginCoordinator = LoginCoordinator(
-//            loginViewModelFactory: loginViewModelFactory,
-//            homeViewFactory: homeViewFactory
-//        )
-//    }
-//
-//    var body: some Scene {
-//        WindowGroup {
-//            loginCoordinator.start() // future move to AppCoordinator
-//        }
-//    }
-//}
-
 @main
 struct MyApp: App {
-    @StateObject private var loginCoordinator: LoginCoordinator
-
+    
+    private var appEnvironment: AppEnvironment!
+    private var appCoordinator: AnyCoordinator<AnyView>
+    
     init() {
-        let navigationCoordinator = NavigationCoordinator()
-
-        // Factories
-        let loginViewModelFactory = DefaultLoginViewModelFactory()
-        let loginViewFactory = LoginViewFactory()
-        let homeViewFactory = HomeViewFactory()
-        let homeCoordinatorFactory = DefaultHomeCoordinatorFactory(homeViewFactory: homeViewFactory)
-
-        let loginCoordinatorFactory = DefaultLoginCoordinatorFactory(
-            navigationCoordinator: navigationCoordinator,
-            loginViewModelFactory: loginViewModelFactory,
-            loginViewFactory: loginViewFactory,
-            homeCoordinatorFactory: homeCoordinatorFactory
-        )
-
-        // Create LoginCoordinator
-        let loginCoordinator = loginCoordinatorFactory.makeLoginCoordinator()
-        _loginCoordinator = StateObject(wrappedValue: loginCoordinator)
+        appEnvironment = AppEnvironment.default()
+        appCoordinator = AnyCoordinator(appEnvironment.makeAppCoordinator())
     }
 
     var body: some Scene {
         WindowGroup {
-            loginCoordinator.start()
+            self.appCoordinator.start()
         }
     }
 }

@@ -5,11 +5,11 @@
 //  Created by Nitin George on 02/11/2024.
 //
 
-protocol LoginViewModelFactory {
+protocol LoginViewModelFactoryType {
     func makeLoginViewModel() -> any LoginViewModelProtocol
 }
 
-class DefaultLoginViewModelFactory: LoginViewModelFactory {
+class LoginViewModelFactory: LoginViewModelFactoryType {
     func makeLoginViewModel() -> any LoginViewModelProtocol {
         return LoginViewModel()
     }

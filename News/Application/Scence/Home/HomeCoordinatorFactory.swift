@@ -5,25 +5,11 @@
 //  Created by Nitin George on 03/11/2024.
 //
 
-protocol HomeCoordinatorFactory {
+protocol HomeCoordinatorFactoryType {
     func makeHomeCoordinator() -> HomeCoordinator
 }
 
-//class DefaultHomeCoordinatorFactory: HomeCoordinatorFactory {
-//    private let navigationCoordinator: NavigationCoordinator
-//    private let homeViewModelFactory: HomeViewModelFactory
-//    
-//    init(navigationCoordinator: NavigationCoordinator, homeViewModelFactory: HomeViewModelFactory) {
-//        self.navigationCoordinator = navigationCoordinator
-//        self.homeViewModelFactory = homeViewModelFactory
-//    }
-//    
-//    func makeHomeCoordinator() -> HomeCoordinator {
-//        return HomeCoordinator(navigationCoordinator: navigationCoordinator, viewModelFactory: homeViewModelFactory)
-//    }
-//}
-
-class DefaultHomeCoordinatorFactory: HomeCoordinatorFactory {
+class HomeCoordinatorFactory: HomeCoordinatorFactoryType {
     private let homeViewFactory: HomeViewFactory
 
     init(homeViewFactory: HomeViewFactory) {

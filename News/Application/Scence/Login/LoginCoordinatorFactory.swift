@@ -5,11 +5,11 @@
 //  Created by Nitin George on 03/11/2024.
 //
 
-protocol LoginCoordinatorFactory {
+protocol LoginCoordinatorFactoryType {
     func makeLoginCoordinator() -> LoginCoordinator
 }
 
-class DefaultLoginCoordinatorFactory: LoginCoordinatorFactory {
+class LoginCoordinatorFactory: LoginCoordinatorFactoryType {
     private let navigationCoordinator: NavigationCoordinator
     private let loginViewModelFactory: LoginViewModelFactory
     private let loginViewFactory: LoginViewFactory

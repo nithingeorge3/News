@@ -12,7 +12,6 @@ struct AppEnvironment {
     let userSession: UserSessionType
 }
 
-
 extension AppEnvironment {
     
     static func `default`() -> AppEnvironment {
@@ -24,6 +23,8 @@ extension AppEnvironment {
             userDefault: standardUserDefaults
         )
             
-        return AppEnvironment(userSession: userSession)
+        return AppEnvironment(
+            userSession: userSession
+        )
     }
 }

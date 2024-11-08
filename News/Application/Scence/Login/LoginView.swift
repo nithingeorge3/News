@@ -20,7 +20,6 @@ struct LoginView: View, LoginViewProtocol {
         VStack(spacing: 20) {
             Spacer()
             
-            
             Text("LoginView Title")
                 .font(.largeTitle)
                 .bold()
