@@ -17,8 +17,8 @@ struct LoginCoordinatorView: View {
             coordinator.makeLoginView()
                 .navigationDestination(for: LoginRoute.self) { route in
                     switch route {
-                    case .dashboard:
-                        coordinator.makeDashboardView()
+                    case .newsList:
+                        coordinator.makeNewsListView()
                     }
                 }
         }
