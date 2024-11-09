@@ -12,8 +12,7 @@ enum LoginRoute: Hashable {
     case home
 }
 
-
-class LoginCoordinator: BaseCoordinator, ObservableObject {
+class LoginCoordinator: Coordinator, ObservableObject {
     @Published var path: [LoginRoute] = []
     private let navigationCoordinator: NavigationCoordinator
     private let loginViewModelFactory: LoginViewModelFactory

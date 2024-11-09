@@ -29,10 +29,10 @@ struct LoginCoordinatorView: View {
 //To ensure that LoginCoordinatorView works correctly, you can write SwiftUI previews or unit tests
 #Preview {
     let navigationCoordinator = NavigationCoordinator()
-    let loginViewModelFactory = DefaultLoginViewModelFactory()
+    let loginViewModelFactory = LoginViewModelFactory()
     let loginViewFactory = LoginViewFactory()
     let homeViewFactory = HomeViewFactory()
-    let homeCoordinatorFactory = DefaultHomeCoordinatorFactory(homeViewFactory: homeViewFactory)
+    let homeCoordinatorFactory = HomeCoordinatorFactory(homeViewFactory: homeViewFactory)
 
     let loginCoordinator = LoginCoordinator(
         navigationCoordinator: navigationCoordinator,

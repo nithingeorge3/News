@@ -11,7 +11,7 @@ import SwiftUI
 @testable import News
 
 class MockLoginViewModelFactory: LoginViewModelFactory {
-    func makeLoginViewModel() -> any LoginViewModelProtocol {
+    override func makeLoginViewModel() -> any LoginViewModelProtocol {
         let viewModel = LoginViewModel()
         // Configure mock behavior if needed
         return viewModel
@@ -25,7 +25,7 @@ class MockLoginViewFactory: LoginViewFactory {
 }
 
 class MockHomeCoordinatorFactory: HomeCoordinatorFactory {
-    func makeHomeCoordinator() -> HomeCoordinator {
+    override func makeHomeCoordinator() -> HomeCoordinator {
         return HomeCoordinator(homeViewFactory: HomeViewFactory())
     }
 }
@@ -36,8 +36,8 @@ class LoginCoordinatorTests: XCTestCase {
         let navigationCoordinator = NavigationCoordinator()
         let loginViewModelFactory = MockLoginViewModelFactory()
         let loginViewFactory = MockLoginViewFactory()
-        let homeCoordinatorFactory = MockHomeCoordinatorFactory()
-        let loginCoordinatorFactory = DefaultLoginCoordinatorFactory(
+        let homeCoordinatorFactory = MockHomeCoordinatorFactory(homeViewFactory: HomeViewFactory())
+        let loginCoordinatorFactory = LoginCoordinatorFactory(
             navigationCoordinator: navigationCoordinator,
             loginViewModelFactory: loginViewModelFactory,
             loginViewFactory: loginViewFactory,

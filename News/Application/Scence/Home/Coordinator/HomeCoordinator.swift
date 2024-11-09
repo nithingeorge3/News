@@ -21,7 +21,7 @@ import SwiftUI
 //    }
 //}
 
-class HomeCoordinator: BaseCoordinator {
+class HomeCoordinator: Coordinator {
     private let homeViewFactory: HomeViewFactory
 
     init(homeViewFactory: HomeViewFactory) {
