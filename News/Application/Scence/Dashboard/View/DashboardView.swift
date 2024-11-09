@@ -12,7 +12,10 @@ struct DashboardView : View {
     @ObservedObject var viewModel: DashboardViewModel
 
     var body: some View {
-        Text("Dashboard View")
+        ArticleView(article: Article.dummyData)
+            .frame(maxWidth: .infinity)
+            .padding()
+        Spacer()
     }
 }
 

@@ -70,10 +70,10 @@
         }
       }
     },
-    "Dashboard View" : {
+    "Details for %@" : {
 
     },
-    "Details for %@" : {
+    "Loading..." : {
 
     },
     "Login Button Title" : {
@@ -120,6 +120,9 @@
         }
       }
     },
+    "LOGINN" : {
+
+    },
     "LoginView Title" : {
       "comment" : "Login view Title",
       "extractionState" : "manual",
@@ -132,6 +135,9 @@
         }
       }
     },
+    "Ooops..." : {
+
+    },
     "Password Title" : {
       "comment" : "Login Password Title",
       "extractionState" : "manual",
@@ -143,6 +149,9 @@
           }
         }
       }
+    },
+    "Retry" : {
+
     },
     "Sidebar" : {
 
