@@ -95,7 +95,7 @@ struct LoginView: View, LoginViewProtocol {
             }
             .padding(.bottom, 40)
         }
-        .navigationTitle("LOGINN")
+        .navigationTitle("LOGIN")
         .padding()
     }
 }
