@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 enum LoginRoute: Hashable {
-    case home
+    case newsList
 }
 
 class LoginCoordinator: Coordinator, ObservableObject {
@@ -17,18 +17,18 @@ class LoginCoordinator: Coordinator, ObservableObject {
     private let navigationCoordinator: NavigationCoordinator
     private let loginViewModelFactory: LoginViewModelFactory
     private let loginViewFactory: LoginViewFactory
-    private let homeCoordinatorFactory: HomeCoordinatorFactory
+    private let newsListCoordinatorFactory: NewsListCoordinatorFactory
 
     init(
         navigationCoordinator: NavigationCoordinator,
         loginViewModelFactory: LoginViewModelFactory,
         loginViewFactory: LoginViewFactory,
-        homeCoordinatorFactory: HomeCoordinatorFactory
+        newsListCoordinatorFactory: NewsListCoordinatorFactory
     ) {
         self.navigationCoordinator = navigationCoordinator
         self.loginViewModelFactory = loginViewModelFactory
         self.loginViewFactory = loginViewFactory
-        self.homeCoordinatorFactory = homeCoordinatorFactory
+        self.newsListCoordinatorFactory = newsListCoordinatorFactory
     }
 
     func start() -> some View {
@@ -44,15 +44,15 @@ class LoginCoordinator: Coordinator, ObservableObject {
         
         viewModel.loginSuccessSubject
             .sink { [weak self] in
-                self?.navigate(to: .home)
+                self?.navigate(to: .newsList)
             }
             .store(in: &viewModel.cancellables)
         
         return loginViewFactory.makeLoginView(viewModel: viewModel as! LoginViewModel)
     }
 
-    func makeHomeView() -> some View {
-        let homeCoordinator = homeCoordinatorFactory.makeHomeCoordinator()
-        return homeCoordinator.start()
+    func makeNewsListView() -> some View {
+        let newsListCoordinator = newsListCoordinatorFactory.makeNewsListCoordinator()
+        return newsListCoordinator.start()
     }
 }
