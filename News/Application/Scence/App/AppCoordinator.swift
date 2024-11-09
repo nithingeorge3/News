@@ -18,14 +18,14 @@ class AppCoordinator: AppCoordinatorType {
         // Factories
         let loginViewModelFactory = LoginViewModelFactory()
         let loginViewFactory = LoginViewFactory()
-        let homeViewFactory = HomeViewFactory()
-        let homeCoordinatorFactory = HomeCoordinatorFactory(homeViewFactory: homeViewFactory)
+        let dashboardViewFactory = DashboardViewFactory()
+        let dashboardCoordinatorFactory = DashboardCoordinatorFactory(dashboardViewFactory: dashboardViewFactory)
 
         let loginCoordinatorFactory = LoginCoordinatorFactory(
             navigationCoordinator: navigationCoordinator,
             loginViewModelFactory: loginViewModelFactory,
             loginViewFactory: loginViewFactory,
-            homeCoordinatorFactory: homeCoordinatorFactory
+            dashboardCoordinatorFactory: dashboardCoordinatorFactory
         )
 
         let loginCoordinator = loginCoordinatorFactory.makeLoginCoordinator()

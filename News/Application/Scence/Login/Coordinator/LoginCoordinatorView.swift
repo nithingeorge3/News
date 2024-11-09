@@ -17,8 +17,8 @@ struct LoginCoordinatorView: View {
             coordinator.makeLoginView()
                 .navigationDestination(for: LoginRoute.self) { route in
                     switch route {
-                    case .home:
-                        coordinator.makeHomeView()
+                    case .dashboard:
+                        coordinator.makeDashboardView()
                     }
                 }
         }
@@ -31,14 +31,14 @@ struct LoginCoordinatorView: View {
     let navigationCoordinator = NavigationCoordinator()
     let loginViewModelFactory = LoginViewModelFactory()
     let loginViewFactory = LoginViewFactory()
-    let homeViewFactory = HomeViewFactory()
-    let homeCoordinatorFactory = HomeCoordinatorFactory(homeViewFactory: homeViewFactory)
+    let dashboardViewFactory = DashboardViewFactory()
+    let dashboardCoordinatorFactory = DashboardCoordinatorFactory(dashboardViewFactory: dashboardViewFactory)
 
     let loginCoordinator = LoginCoordinator(
         navigationCoordinator: navigationCoordinator,
         loginViewModelFactory: loginViewModelFactory,
         loginViewFactory: loginViewFactory,
-        homeCoordinatorFactory: homeCoordinatorFactory
+        dashboardCoordinatorFactory: dashboardCoordinatorFactory
     )
 
     LoginCoordinatorView(coordinator: loginCoordinator)

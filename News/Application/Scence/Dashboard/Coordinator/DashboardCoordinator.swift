@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-//class HomeCoordinator: BaseCoordinator {
+//class DashboardCoordinator: BaseCoordinator {
 //    private let navigationCoordinator: NavigationCoordinator
 //    private let viewModelFactory: HomeViewModelFactory
 //    
@@ -21,14 +21,14 @@ import SwiftUI
 //    }
 //}
 
-class HomeCoordinator: Coordinator {
-    private let homeViewFactory: HomeViewFactory
+class DashboardCoordinator: Coordinator {
+    private let dashboardViewFactory: DashboardViewFactory
 
-    init(homeViewFactory: HomeViewFactory) {
-        self.homeViewFactory = homeViewFactory
+    init(dashboardViewFactory: DashboardViewFactory) {
+        self.dashboardViewFactory = dashboardViewFactory
     }
 
     func start() -> some View {
-        homeViewFactory.makeHomeView()
+        dashboardViewFactory.makeDashboardView()
     }
 }

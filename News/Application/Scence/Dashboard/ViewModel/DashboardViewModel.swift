@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class HomeViewModel: ObservableObject {
+class DashboardViewModel: ObservableObject {
     @Published var articles: [Article] = []
     
     init() {
