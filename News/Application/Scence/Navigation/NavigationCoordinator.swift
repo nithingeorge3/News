@@ -9,7 +9,7 @@ import Combine
 
 enum AppRoute: Hashable {
     case login
-    case home
+    case dashboard
 }
 
 class NavigationCoordinator: ObservableObject {
@@ -19,8 +19,8 @@ class NavigationCoordinator: ObservableObject {
         path = [.login]
     }
     
-    func goToHome() {
-        path.append(.home)
+    func goToDashboard() {
+        path.append(.dashboard)
     }
 }
 

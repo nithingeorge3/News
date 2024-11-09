@@ -8,7 +8,7 @@
 class MockNavigationCoordinator: NavigationCoordinator {
     var didNavigateToHome = false
     
-    override func goToHome() {
+    override func goToDashboard() {
         didNavigateToHome = true
     }
 }

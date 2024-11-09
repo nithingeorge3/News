@@ -73,7 +73,10 @@
     "Details for %@" : {
 
     },
-    "Home View" : {
+    "Loading..." : {
+
+    },
+    "LOGIN" : {
 
     },
     "Login Button Title" : {
@@ -132,6 +135,12 @@
         }
       }
     },
+    "News" : {
+
+    },
+    "Ooops..." : {
+
+    },
     "Password Title" : {
       "comment" : "Login Password Title",
       "extractionState" : "manual",
@@ -143,6 +152,9 @@
           }
         }
       }
+    },
+    "Retry" : {
+
     },
     "Sidebar" : {
 
