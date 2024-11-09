@@ -20,9 +20,9 @@ import SwiftUI
 //}
 
 
-class DashboardViewFactory {
-    func makeDashboardView() -> some View {
-        let viewModel = DashboardViewModel()
-        return DashboardView(viewModel: viewModel)
+class NewsListViewFactory {
+    func makeNewsListView() -> some View {
+        let viewModel = NewsListViewModel()
+        return NewsListView(viewModel: viewModel)
     }
 }

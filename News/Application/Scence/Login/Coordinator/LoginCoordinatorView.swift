@@ -31,14 +31,14 @@ struct LoginCoordinatorView: View {
     let navigationCoordinator = NavigationCoordinator()
     let loginViewModelFactory = LoginViewModelFactory()
     let loginViewFactory = LoginViewFactory()
-    let dashboardViewFactory = DashboardViewFactory()
-    let dashboardCoordinatorFactory = DashboardCoordinatorFactory(dashboardViewFactory: dashboardViewFactory)
+    let newsListViewFactory = NewsListViewFactory()
+    let newsListCoordinatorFactory = NewsListCoordinatorFactory(newsListViewFactory: newsListViewFactory)
 
     let loginCoordinator = LoginCoordinator(
         navigationCoordinator: navigationCoordinator,
         loginViewModelFactory: loginViewModelFactory,
         loginViewFactory: loginViewFactory,
-        dashboardCoordinatorFactory: dashboardCoordinatorFactory
+        newsListCoordinatorFactory: newsListCoordinatorFactory
     )
 
     LoginCoordinatorView(coordinator: loginCoordinator)

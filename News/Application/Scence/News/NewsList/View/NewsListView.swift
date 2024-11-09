@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct DashboardView : View {
+struct NewsListView : View {
     
-    @ObservedObject var viewModel: DashboardViewModel
+    @ObservedObject var viewModel: NewsListViewModel
 
     var body: some View {
         ArticleView(article: Article.dummyData)
@@ -20,5 +20,5 @@ struct DashboardView : View {
 }
 
 #Preview {
-    DashboardView(viewModel: DashboardViewModel())
+    NewsListView(viewModel: NewsListViewModel())
 }

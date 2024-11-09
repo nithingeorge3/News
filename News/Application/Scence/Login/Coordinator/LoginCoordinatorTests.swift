@@ -24,9 +24,9 @@ class MockLoginViewFactory: LoginViewFactory {
     }
 }
 
-class MockDashboardCoordinatorFactory: DashboardCoordinatorFactory {
-    override func makeDashboardCoordinator() -> DashboardCoordinator {
-        return DashboardCoordinator(dashboardViewFactory: DashboardViewFactory())
+class MockNewsListCoordinatorFactory: NewsListCoordinatorFactory {
+    override func makeNewsListCoordinator() -> NewsListCoordinator {
+        return NewsListCoordinator(newsListViewFactory: NewsListViewFactory())
     }
 }
 
@@ -36,12 +36,12 @@ class LoginCoordinatorTests: XCTestCase {
         let navigationCoordinator = NavigationCoordinator()
         let loginViewModelFactory = MockLoginViewModelFactory()
         let loginViewFactory = MockLoginViewFactory()
-        let dashboardCoordinatorFactory = MockDashboardCoordinatorFactory(dashboardViewFactory: DashboardViewFactory())
+        let newsListCoordinatorFactory = MockNewsListCoordinatorFactory(newsListViewFactory: NewsListViewFactory())
         let loginCoordinatorFactory = LoginCoordinatorFactory(
             navigationCoordinator: navigationCoordinator,
             loginViewModelFactory: loginViewModelFactory,
             loginViewFactory: loginViewFactory,
-            dashboardCoordinatorFactory: dashboardCoordinatorFactory
+            newsListCoordinatorFactory: newsListCoordinatorFactory
         )
         let loginCoordinator = loginCoordinatorFactory.makeLoginCoordinator()
 

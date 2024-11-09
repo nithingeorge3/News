@@ -21,14 +21,14 @@ import SwiftUI
 //    }
 //}
 
-class DashboardCoordinator: Coordinator {
-    private let dashboardViewFactory: DashboardViewFactory
+class NewsListCoordinator: Coordinator {
+    private let newsListViewFactory: NewsListViewFactory
 
-    init(dashboardViewFactory: DashboardViewFactory) {
-        self.dashboardViewFactory = dashboardViewFactory
+    init(newsListViewFactory: NewsListViewFactory) {
+        self.newsListViewFactory = newsListViewFactory
     }
 
     func start() -> some View {
-        dashboardViewFactory.makeDashboardView()
+        newsListViewFactory.makeNewsListView()
     }
 }

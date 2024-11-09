@@ -17,18 +17,18 @@ class LoginCoordinator: Coordinator, ObservableObject {
     private let navigationCoordinator: NavigationCoordinator
     private let loginViewModelFactory: LoginViewModelFactory
     private let loginViewFactory: LoginViewFactory
-    private let dashboardCoordinatorFactory: DashboardCoordinatorFactory
+    private let newsListCoordinatorFactory: NewsListCoordinatorFactory
 
     init(
         navigationCoordinator: NavigationCoordinator,
         loginViewModelFactory: LoginViewModelFactory,
         loginViewFactory: LoginViewFactory,
-        dashboardCoordinatorFactory: DashboardCoordinatorFactory
+        newsListCoordinatorFactory: NewsListCoordinatorFactory
     ) {
         self.navigationCoordinator = navigationCoordinator
         self.loginViewModelFactory = loginViewModelFactory
         self.loginViewFactory = loginViewFactory
-        self.dashboardCoordinatorFactory = dashboardCoordinatorFactory
+        self.newsListCoordinatorFactory = newsListCoordinatorFactory
     }
 
     func start() -> some View {
@@ -52,7 +52,7 @@ class LoginCoordinator: Coordinator, ObservableObject {
     }
 
     func makeDashboardView() -> some View {
-        let dashboardCoordinator = dashboardCoordinatorFactory.makeDashboardCoordinator()
-        return dashboardCoordinator.start()
+        let newsListCoordinator = newsListCoordinatorFactory.makeNewsListCoordinator()
+        return newsListCoordinator.start()
     }
 }

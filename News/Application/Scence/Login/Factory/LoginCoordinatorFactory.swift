@@ -13,18 +13,18 @@ class LoginCoordinatorFactory: LoginCoordinatorFactoryType {
     private let navigationCoordinator: NavigationCoordinator
     private let loginViewModelFactory: LoginViewModelFactory
     private let loginViewFactory: LoginViewFactory
-    private let dashboardCoordinatorFactory: DashboardCoordinatorFactory
+    private let newsListCoordinatorFactory: NewsListCoordinatorFactory
 
     init(
         navigationCoordinator: NavigationCoordinator,
         loginViewModelFactory: LoginViewModelFactory,
         loginViewFactory: LoginViewFactory,
-        dashboardCoordinatorFactory: DashboardCoordinatorFactory
+        newsListCoordinatorFactory: NewsListCoordinatorFactory
     ) {
         self.navigationCoordinator = navigationCoordinator
         self.loginViewModelFactory = loginViewModelFactory
         self.loginViewFactory = loginViewFactory
-        self.dashboardCoordinatorFactory = dashboardCoordinatorFactory
+        self.newsListCoordinatorFactory = newsListCoordinatorFactory
     }
 
     func makeLoginCoordinator() -> LoginCoordinator {
@@ -32,7 +32,7 @@ class LoginCoordinatorFactory: LoginCoordinatorFactoryType {
             navigationCoordinator: navigationCoordinator,
             loginViewModelFactory: loginViewModelFactory,
             loginViewFactory: loginViewFactory,
-            dashboardCoordinatorFactory: dashboardCoordinatorFactory
+            newsListCoordinatorFactory: newsListCoordinatorFactory
         )
     }
 }
