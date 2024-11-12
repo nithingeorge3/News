@@ -12,12 +12,10 @@ struct ArticleView: View {
     let article: Article
     
     var body: some View {
-        HStack {
-            // TODO: Add image view
+        HStack(spacing: 16) {
             if let image = article.image,
                let url = URL(string: image){
                 NewsImageView(imageURL: url, imageFrame: (100, 100))
-
             } else {
                 Image(systemName: "photo.fill")
                     .foregroundColor(.white)
@@ -25,23 +23,20 @@ struct ArticleView: View {
                     .frame(width: 100, height: 100)
                     .cornerRadius(10)
             }
-
-            
             VStack(alignment: .leading, spacing: 4) {
-                
-                Text(article.title ?? "")
+                Text(article.title!)
                     .foregroundColor(.black)
                     .font(.system(size: 18, weight: .semibold))
-                Text(article.source ?? "")
+                Text(article.source!)
                     .foregroundColor(.gray)
                     .font(.system(size: 12, weight: .regular))
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
 #Preview {
     ArticleView(article: Article.dummyData)
 }
-
-

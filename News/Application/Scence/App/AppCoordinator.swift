@@ -19,7 +19,8 @@ class AppCoordinator: AppCoordinatorType {
         let loginViewModelFactory = LoginViewModelFactory()
         let loginViewFactory = LoginViewFactory()
         let newsListViewFactory = NewsListViewFactory()
-        let newsListCoordinatorFactory = NewsListCoordinatorFactory(newsListViewFactory: newsListViewFactory)
+        let newsListViewModelFactory = NewsListViewModelFactory()
+        let newsListCoordinatorFactory = NewsListCoordinatorFactory(newsListViewFactory: newsListViewFactory, newsListViewModelFactory: newsListViewModelFactory)
 
         let loginCoordinatorFactory = LoginCoordinatorFactory(
             navigationCoordinator: navigationCoordinator,

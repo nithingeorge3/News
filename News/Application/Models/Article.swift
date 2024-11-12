@@ -8,17 +8,45 @@
 import Foundation
 
 // MARK: - ArticleResponse
+
 struct ArticleResponse: Codable {
     let articles: [Article]
 }
 
-// MARK: - Article
-struct Article: Codable {
-    let author: String?
-    let url: String?
-    let source, title, description: String?
-    let image: String?
-    let date: Date?
+struct Article: Codable, Identifiable {
+    var id: UUID = UUID()
+    var author: String?
+    var url: String?
+    var source: String?
+    var title: String?
+    var description: String?
+    var image: String?
+    var date: Date?
+
+    enum CodingKeys: String, CodingKey {
+        case author, url, source,title,
+             image, date, description
+    }
+    
+    init(
+        id: UUID = UUID(),
+        author: String? = nil,
+        url: String? = nil,
+        source: String? = nil,
+        title: String? = nil,
+        description: String? = nil,
+        image: String? = nil,
+        date: Date? = nil
+    ) {
+        self.id = id
+        self.author = author
+        self.url = url
+        self.source = source
+        self.title = title
+        self.description = description
+        self.image = image
+        self.date = date
+    }
 }
 
 

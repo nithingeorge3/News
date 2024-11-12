@@ -11,12 +11,16 @@ protocol NewsListCoordinatorFactoryType {
 
 class NewsListCoordinatorFactory: NewsListCoordinatorFactoryType {
     private let newsListViewFactory: NewsListViewFactory
-
-    init(newsListViewFactory: NewsListViewFactory) {
+    private let newsListViewModelFactory: NewsListViewModelFactory
+    
+    init(newsListViewFactory: NewsListViewFactory,
+         newsListViewModelFactory: NewsListViewModelFactory
+    ) {
         self.newsListViewFactory = newsListViewFactory
+        self.newsListViewModelFactory = newsListViewModelFactory
     }
 
     func makeNewsListCoordinator() -> NewsListCoordinator {
-        return NewsListCoordinator(newsListViewFactory: newsListViewFactory)
+        return NewsListCoordinator(newsListViewFactory: newsListViewFactory, newsListViewModelFactory: newsListViewModelFactory)
     }
 }

@@ -8,11 +8,11 @@ import SwiftUI
 
 //class HomeViewFactory {
 //    private let viewModelFactory: HomeViewModelFactory
-//    
+//
 //    init(viewModelFactory: HomeViewModelFactory) {
 //        self.viewModelFactory = viewModelFactory
 //    }
-//    
+//
 //    func makeHomeView() -> some View {
 //        let viewModel = viewModelFactory.makeHomeViewModel()
 //        return HomeView(viewModel: viewModel)
@@ -21,8 +21,9 @@ import SwiftUI
 
 
 class NewsListViewFactory {
-    func makeNewsListView() -> some View {
-        let viewModel = NewsListViewModel()
-        return NewsListView(viewModel: viewModel)
+    func makeNewsListView(listViewModelFactory: NewsListViewModelFactoryType) -> some View {
+        
+        let newsListViewModel = listViewModelFactory.makeNewsListViewModel()
+        return NewsListView(viewModel: newsListViewModel)
     }
 }

@@ -47,17 +47,6 @@ struct NewsImageView: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: imageFrame.0, height: imageFrame.1)
                 .clipped()
-//                .overlay(
-//                    Image(systemName: "checkmark.circle.fill")
-//                        .foregroundColor(.green)
-//                        .opacity(isLoadingSuccessful ? 1 : 0)
-//                        .padding()
-//                        .background(Color.white.opacity(0.6))
-//                        .clipShape(Circle())
-//                        .padding(.top, 8)
-//                        .padding(.trailing, 8),
-//                    alignment: .topTrailing
-//                )
         }
     }
 
