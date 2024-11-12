@@ -10,12 +10,12 @@ import SwiftUI
 //class DashboardCoordinator: BaseCoordinator {
 //    private let navigationCoordinator: NavigationCoordinator
 //    private let viewModelFactory: HomeViewModelFactory
-//    
+//
 //    init(navigationCoordinator: NavigationCoordinator, viewModelFactory: HomeViewModelFactory) {
 //        self.navigationCoordinator = navigationCoordinator
 //        self.viewModelFactory = viewModelFactory
 //    }
-//    
+//
 //    override func start() {
 //        navigationCoordinator.goToHome()
 //    }

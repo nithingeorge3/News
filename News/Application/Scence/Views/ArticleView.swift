@@ -40,5 +40,3 @@ struct ArticleView: View {
 #Preview {
     ArticleView(article: Article.dummyData)
 }
-
-
