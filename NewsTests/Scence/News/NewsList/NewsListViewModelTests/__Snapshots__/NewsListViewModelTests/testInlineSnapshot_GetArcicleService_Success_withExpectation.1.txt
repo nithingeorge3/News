@@ -1,0 +1,49 @@
+▿ 3 elements
+  ▿ Article
+    ▿ author: Optional<String>
+      - some: "Lidia Kelly"
+    ▿ date: Optional<Date>
+      - some: 2024-11-10T10:00:45Z
+    ▿ description: Optional<String>
+      - some: "CBS Sports and SportsLine break down every single NFL game in the Week 10 slate"
+    - id: 374F4678-4EE6-4476-AA0A-45104C9202F9
+    ▿ image: Optional<String>
+      - some: "https://sportshub.cbsistatic.com/i/r/2024/11/07/551ca363-3ed6-4f76-85f6-761da49e4a5a/thumbnail/1200x675/64254b1a98491d1c69b7da2b6f355168/saquon-barkley-usatsi.jpg"
+    ▿ source: Optional<String>
+      - some: "CBS Sports"
+    ▿ title: Optional<String>
+      - some: "NFL Week 10 odds, predictions, expert picks: Best bets, teasers, survivor picks, where to watch all games - CBS Sports"
+    ▿ url: Optional<String>
+      - some: "https://www.cbssports.com/nfl/news/nfl-week-10-odds-predictions-expert-picks-best-bets-teasers-survivor-picks-where-to-watch-all-games/"
+  ▿ Article
+    ▿ author: Optional<String>
+      - some: "Guy Faulconbridge, Lidia Kelly"
+    ▿ date: Optional<Date>
+      - some: 2024-11-10T09:46:56Z
+    ▿ description: Optional<String>
+      - some: "The assault forced flight diversions and injured at least one person."
+    - id: 8F5B11AB-2866-4EB7-9A74-09A8B11D6229
+    ▿ image: Optional<String>
+      - some: "https://www.reuters.com/resizer/v2/JPHWWWQYINOZZKITXM2EHX4JYA.jpg?auth=9a33c1b78b32623b704e557c5dae62e1bf0da6ae505c676e328de70c2b7dab74&height=1005&width=1920&quality=80&smart=true"
+    ▿ source: Optional<String>
+      - some: "Reuters"
+    ▿ title: Optional<String>
+      - some: "Ukraine attacks Moscow with 34 drones, biggest strike on the Russian capital - Reuters"
+    ▿ url: Optional<String>
+      - some: "https://www.reuters.com/world/europe/ukraines-drone-attack-forces-closure-two-moscow-airports-2024-11-10/"
+  ▿ Article
+    ▿ author: Optional<String>
+      - some: "Becky Anderson"
+    ▿ date: Optional<Date>
+      - some: 2024-11-10T08:39:00Z
+    ▿ description: Optional<String>
+      - some: "Qatar is suspending its role as a mediator in talks between Israel and Hamas after concluding that the two sides are no longer negotiating in good faith, its foreign ministry said Saturday."
+    - id: 60CE0695-DE6A-41FC-8970-0DEDF766CCC0
+    ▿ image: Optional<String>
+      - some: "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2182047447-copy.jpg?c=16x9&q=w_800,c_fill"
+    ▿ source: Optional<String>
+      - some: "CNN"
+    ▿ title: Optional<String>
+      - some: "Qatar is suspending its role in talks between Israel and Hamas - CNN"
+    ▿ url: Optional<String>
+      - some: "https://www.cnn.com/2024/11/09/middleeast/qatar-mediation-israel-hamas-intl/index.html"
