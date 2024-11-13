@@ -1,0 +1,7 @@
+▿ 2 key/value pairs
+  ▿ (2 elements)
+    - key: "age"
+    - value: 30
+  ▿ (2 elements)
+    - key: "name"
+    - value: "Alice"

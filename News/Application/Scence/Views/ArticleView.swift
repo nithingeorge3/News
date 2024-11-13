@@ -24,10 +24,10 @@ struct ArticleView: View {
                     .cornerRadius(10)
             }
             VStack(alignment: .leading, spacing: 4) {
-                Text(article.title!)
+                Text(article.title ?? "")
                     .foregroundColor(.black)
                     .font(.system(size: 18, weight: .semibold))
-                Text(article.source!)
+                Text(article.source ?? "")
                     .foregroundColor(.gray)
                     .font(.system(size: 12, weight: .regular))
             }

@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		283EEF372CDFD124000E9CF8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 283EEF362CDFD124000E9CF8 /* Kingfisher */; };
-		283EEF3B2CDFD135000E9CF8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 283EEF3A2CDFD135000E9CF8 /* Kingfisher */; };
-		289700D92CDB7E890072A42B /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 289700D82CDB7E890072A42B /* KeychainAccess */; };
-		28CE748A2CDC23BE005B12E6 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 28CE74892CDC23BE005B12E6 /* KeychainSwift */; };
+		281B8D382CE4210100FD9C65 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 281B8D372CE4210100FD9C65 /* InlineSnapshotTesting */; };
+		281B8D3A2CE4210100FD9C65 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 281B8D392CE4210100FD9C65 /* SnapshotTesting */; };
+		281B8D3D2CE4210F00FD9C65 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 281B8D3C2CE4210F00FD9C65 /* KeychainSwift */; };
+		281B8D402CE4211F00FD9C65 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 281B8D3F2CE4211F00FD9C65 /* KeychainAccess */; };
+		281B8D432CE4213600FD9C65 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 281B8D422CE4213600FD9C65 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				283EEF3B2CDFD135000E9CF8 /* Kingfisher in Frameworks */,
+				281B8D382CE4210100FD9C65 /* InlineSnapshotTesting in Frameworks */,
+				281B8D3A2CE4210100FD9C65 /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,9 +80,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				283EEF372CDFD124000E9CF8 /* Kingfisher in Frameworks */,
-				28CE748A2CDC23BE005B12E6 /* KeychainSwift in Frameworks */,
-				289700D92CDB7E890072A42B /* KeychainAccess in Frameworks */,
+				281B8D432CE4213600FD9C65 /* Kingfisher in Frameworks */,
+				281B8D402CE4211F00FD9C65 /* KeychainAccess in Frameworks */,
+				281B8D3D2CE4210F00FD9C65 /* KeychainSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +136,8 @@
 			);
 			name = NewsTests;
 			packageProductDependencies = (
-				283EEF3A2CDFD135000E9CF8 /* Kingfisher */,
+				281B8D372CE4210100FD9C65 /* InlineSnapshotTesting */,
+				281B8D392CE4210100FD9C65 /* SnapshotTesting */,
 			);
 			productName = NewsTests;
 			productReference = 28785B682CD819C20044DFAE /* NewsTests.xctest */;
@@ -157,9 +160,9 @@
 			);
 			name = News;
 			packageProductDependencies = (
-				289700D82CDB7E890072A42B /* KeychainAccess */,
-				28CE74892CDC23BE005B12E6 /* KeychainSwift */,
-				283EEF362CDFD124000E9CF8 /* Kingfisher */,
+				281B8D3C2CE4210F00FD9C65 /* KeychainSwift */,
+				281B8D3F2CE4211F00FD9C65 /* KeychainAccess */,
+				281B8D422CE4213600FD9C65 /* Kingfisher */,
 			);
 			productName = News;
 			productReference = 288C47F02CD6B16100F26CF4 /* News.app */;
@@ -196,9 +199,10 @@
 			mainGroup = 288C47E72CD6B16100F26CF4;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				289700D72CDB7E890072A42B /* XCRemoteSwiftPackageReference "KeychainAccess" */,
-				28CE74882CDC23BE005B12E6 /* XCRemoteSwiftPackageReference "keychain-swift" */,
-				283EEF312CDFD012000E9CF8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				281B8D362CE4210100FD9C65 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+				281B8D3B2CE4210F00FD9C65 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				281B8D3E2CE4211F00FD9C65 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				281B8D412CE4213600FD9C65 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 288C47F12CD6B16100F26CF4 /* Products */;
@@ -498,23 +502,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		283EEF312CDFD012000E9CF8 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		281B8D362CE4210100FD9C65 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 8.1.0;
+				minimumVersion = 1.17.6;
 			};
 		};
-		289700D72CDB7E890072A42B /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		28CE74882CDC23BE005B12E6 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+		281B8D3B2CE4210F00FD9C65 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
 			requirement = {
@@ -522,28 +518,49 @@
 				minimumVersion = 24.0.0;
 			};
 		};
+		281B8D3E2CE4211F00FD9C65 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		281B8D412CE4213600FD9C65 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		283EEF362CDFD124000E9CF8 /* Kingfisher */ = {
+		281B8D372CE4210100FD9C65 /* InlineSnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 283EEF312CDFD012000E9CF8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
+			package = 281B8D362CE4210100FD9C65 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = InlineSnapshotTesting;
 		};
-		283EEF3A2CDFD135000E9CF8 /* Kingfisher */ = {
+		281B8D392CE4210100FD9C65 /* SnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 283EEF312CDFD012000E9CF8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
+			package = 281B8D362CE4210100FD9C65 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
 		};
-		289700D82CDB7E890072A42B /* KeychainAccess */ = {
+		281B8D3C2CE4210F00FD9C65 /* KeychainSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 289700D72CDB7E890072A42B /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			package = 281B8D3B2CE4210F00FD9C65 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+		281B8D3F2CE4211F00FD9C65 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 281B8D3E2CE4211F00FD9C65 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
 		};
-		28CE74892CDC23BE005B12E6 /* KeychainSwift */ = {
+		281B8D422CE4213600FD9C65 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 28CE74882CDC23BE005B12E6 /* XCRemoteSwiftPackageReference "keychain-swift" */;
-			productName = KeychainSwift;
+			package = 281B8D412CE4213600FD9C65 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
