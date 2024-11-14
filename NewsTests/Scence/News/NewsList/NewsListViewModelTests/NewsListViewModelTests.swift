@@ -7,6 +7,8 @@
 
 import XCTest
 import Combine
+import SnapshotTesting
+import InlineSnapshotTesting
 
 @testable import News
 
@@ -93,19 +95,18 @@ class NewsListViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 3)
     }
     
-    
-//    func testGetArcicleService_Success_withAsync() async {
-//        
+//    func testInlineSnapshot_GetArcicleService_Success() {
 //        service = MockArticleService(parser: parser,  jsonFileName: "MockArticles_Success")
 //        viewModel = NewsListViewModel(articleService: service)
-//        
-//        viewModel.getArticles()
+//                
 //        viewModel.$state
 //            .sink { state in
 //                if case .success(let articles) = state {
-//                    XCTAssertEqual(articles.count, 3)
+//                    assertSnapshot(of: articles, as: .dump)
 //                }
 //            }
 //            .store(in: &cancellables)
+//        
+//        viewModel.getArticles()        
 //    }
 }
