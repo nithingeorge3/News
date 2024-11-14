@@ -12,6 +12,7 @@
 		281B8D3D2CE4210F00FD9C65 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 281B8D3C2CE4210F00FD9C65 /* KeychainSwift */; };
 		281B8D402CE4211F00FD9C65 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 281B8D3F2CE4211F00FD9C65 /* KeychainAccess */; };
 		281B8D432CE4213600FD9C65 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 281B8D422CE4213600FD9C65 /* Kingfisher */; };
+		285944EE2CE60B5600E6E848 /* NetworkModule in Frameworks */ = {isa = PBXBuildFile; productRef = 285944ED2CE60B5600E6E848 /* NetworkModule */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		285944EB2CE60A9E00E6E848 /* NetworkModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkModule; sourceTree = "<group>"; };
 		28785B682CD819C20044DFAE /* NewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		288C47F02CD6B16100F26CF4 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				281B8D432CE4213600FD9C65 /* Kingfisher in Frameworks */,
+				285944EE2CE60B5600E6E848 /* NetworkModule in Frameworks */,
 				281B8D402CE4211F00FD9C65 /* KeychainAccess in Frameworks */,
 				281B8D3D2CE4210F00FD9C65 /* KeychainSwift in Frameworks */,
 			);
@@ -96,9 +99,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		285944EC2CE60A9E00E6E848 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				285944EB2CE60A9E00E6E848 /* NetworkModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
 		288C47E72CD6B16100F26CF4 = {
 			isa = PBXGroup;
 			children = (
+				285944EC2CE60A9E00E6E848 /* Modules */,
 				288C47F22CD6B16100F26CF4 /* News */,
 				28785B692CD819C20044DFAE /* NewsTests */,
 				283EEF352CDFD124000E9CF8 /* Frameworks */,
@@ -163,6 +175,7 @@
 				281B8D3C2CE4210F00FD9C65 /* KeychainSwift */,
 				281B8D3F2CE4211F00FD9C65 /* KeychainAccess */,
 				281B8D422CE4213600FD9C65 /* Kingfisher */,
+				285944ED2CE60B5600E6E848 /* NetworkModule */,
 			);
 			productName = News;
 			productReference = 288C47F02CD6B16100F26CF4 /* News.app */;
@@ -561,6 +574,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 281B8D412CE4213600FD9C65 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		285944ED2CE60B5600E6E848 /* NetworkModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkModule;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

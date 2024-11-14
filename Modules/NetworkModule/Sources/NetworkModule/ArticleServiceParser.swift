@@ -1,19 +1,16 @@
 //
 //  ArticleServiceParser.swift
-//  News
+//  NetworkModule
 //
-//  Created by Nitin George on 11/11/2024.
+//  Created by Nitin George on 14/11/2024.
 //
+
 import Foundation
 import Combine
 
-protocol ArticleServiceParserType {
-    func parse<T: Decodable>(data: Data, response: URLResponse, type: T.Type) -> AnyPublisher<T, Error>
-}
-
 class ArticleServiceParser: ArticleServiceParserType {
-    
-    func parse<T: Decodable>(data: Data, response: URLResponse, type: T.Type) -> AnyPublisher<T, Error> {
+        
+     func parse<T: Decodable>(data: Data, response: URLResponse, type: T.Type) -> AnyPublisher<T, Error> {
         
         return Just((data, response))
             .tryMap { (data, response) -> Data in

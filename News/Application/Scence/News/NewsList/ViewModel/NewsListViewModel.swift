@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import NetworkModule
 
 enum ResultState {
     case loading

@@ -8,6 +8,7 @@
 import Combine
 import Foundation
 import XCTest
+import NetworkModule
 import SnapshotTesting
 import SwiftUI
 
@@ -28,7 +29,7 @@ final class NewsListViewTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        parser = ArticleServiceParser()
+        parser = MockArticleServiceParser()
         cancellables = []
     }
     

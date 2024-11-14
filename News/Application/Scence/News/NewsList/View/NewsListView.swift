@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NetworkModule
 
 struct NewsListView : View {
     
@@ -45,7 +46,7 @@ struct NewsListView : View {
 }
 
 #Preview {
-    let articleService = ArticleService(parser: ArticleServiceParser())
+    let articleService = ArticleServiceFactory.articleService()
     NewsListView(viewModel:
                     NewsListViewModel(articleService: articleService))
 }
