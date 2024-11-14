@@ -13,7 +13,9 @@ protocol NewsListViewModelFactoryType {
 
 class NewsListViewModelFactory: NewsListViewModelFactoryType {
     func makeNewsListViewModel() -> NewsListViewModel {
-        let articleService = ArticleService(parser: ArticleServiceParser())
+        
+        let articleService = ArticleServiceFactory.articleService()
+        
         return NewsListViewModel(articleService: articleService)
     }
 }

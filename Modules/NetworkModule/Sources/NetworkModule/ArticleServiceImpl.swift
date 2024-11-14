@@ -42,12 +42,6 @@ extension EndPoint: APIBuilder {
     }
 }
 
-public enum NetworkError: Error {
-    case invalidURL
-    case responseError
-    case unKnown
-}
-
 extension NetworkError: LocalizedError {
     public var errorDescription: String? {
         switch self {
@@ -61,20 +55,16 @@ extension NetworkError: LocalizedError {
     }
 }
 
-public protocol ArticleServiceType {
-    func getArticles<T: Decodable>(endPoint: EndPoint, type: T.Type) -> Future<T, Error>
-}
-
-public class ArticleService: ArticleServiceType {
+class ArticleServiceImpl: ArticleServiceType {
     
     private var cancellables: Set<AnyCancellable> = []
     private let parser: ArticleServiceParserType
     
-    public init(parser: ArticleServiceParserType) {
+    init(parser: ArticleServiceParserType = ArticleServiceParser()) {
         self.parser = parser
     }
     
-    public func getArticles<T: Decodable>(endPoint: EndPoint, type: T.Type) -> Future<T, Error> {
+    func getArticles<T: Decodable>(endPoint: EndPoint, type: T.Type) -> Future<T, Error> {
         
         return Future<T, Error> { [weak self] promise in
             guard let self = self else {
