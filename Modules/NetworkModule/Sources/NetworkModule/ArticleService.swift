@@ -1,8 +1,8 @@
 //
-//  ArticleServices.swift
-//  News
+//  ArticleService.swift
+//  NetworkModule
 //
-//  Created by Nitin George on 10/11/2024.
+//  Created by Nitin George on 14/11/2024.
 //
 
 import Combine
@@ -14,7 +14,7 @@ protocol APIBuilder {
     var path: String { get }
 }
 
-enum EndPoint: String {
+public enum EndPoint: String {
     case articles
     case details
 }
@@ -42,7 +42,7 @@ extension EndPoint: APIBuilder {
     }
 }
 
-enum NetworkError: Error {
+public enum NetworkError: Error {
     case invalidURL
     case responseError
     case unKnown
@@ -61,20 +61,20 @@ extension NetworkError: LocalizedError {
     }
 }
 
-protocol ArticleServiceType {
+public protocol ArticleServiceType {
     func getArticles<T: Decodable>(endPoint: EndPoint, type: T.Type) -> Future<T, Error>
 }
 
-class ArticleService: ArticleServiceType {
+public class ArticleService: ArticleServiceType {
     
     private var cancellables: Set<AnyCancellable> = []
     private let parser: ArticleServiceParserType
     
-    init(parser: ArticleServiceParserType) {
+    public init(parser: ArticleServiceParserType) {
         self.parser = parser
     }
     
-    func getArticles<T: Decodable>(endPoint: EndPoint, type: T.Type) -> Future<T, Error> {
+    public func getArticles<T: Decodable>(endPoint: EndPoint, type: T.Type) -> Future<T, Error> {
         
         return Future<T, Error> { [weak self] promise in
             guard let self = self else {

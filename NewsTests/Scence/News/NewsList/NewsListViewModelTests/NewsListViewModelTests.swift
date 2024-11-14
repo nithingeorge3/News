@@ -7,6 +7,7 @@
 
 import XCTest
 import Combine
+import NetworkModule
 import SnapshotTesting
 import InlineSnapshotTesting
 

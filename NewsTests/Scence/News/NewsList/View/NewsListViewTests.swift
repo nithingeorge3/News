@@ -8,6 +8,7 @@
 import Combine
 import Foundation
 import XCTest
+import NetworkModule
 import SnapshotTesting
 import SwiftUI
 
