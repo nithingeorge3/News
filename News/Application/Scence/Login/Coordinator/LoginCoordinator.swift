@@ -12,8 +12,14 @@ enum LoginRoute: Hashable {
     case newsList
 }
 
+protocol Navigator {
+    func navigate(to route: LoginRoute)
+}
+
 class LoginCoordinator: Coordinator, ObservableObject {
+   
     @Published var path: [LoginRoute] = []
+   
     private let navigationCoordinator: NavigationCoordinator
     private let loginViewModelFactory: LoginViewModelFactory
     private let loginViewFactory: LoginViewFactory
@@ -35,20 +41,10 @@ class LoginCoordinator: Coordinator, ObservableObject {
         LoginCoordinatorView(coordinator: self)
     }
 
-    func navigate(to route: LoginRoute) {
-        path.append(route)
-    }
-
     func makeLoginView() -> some View {
-        let viewModel = loginViewModelFactory.makeLoginViewModel()
-        
-        viewModel.loginSuccessSubject
-            .sink { [weak self] in
-                self?.navigate(to: .newsList)
-            }
-            .store(in: &viewModel.cancellables)
-        
-        return loginViewFactory.makeLoginView(viewModel: viewModel as! LoginViewModel)
+        loginViewFactory.makeLoginView { [weak self] route in
+            self?.navigate(to: route)
+        }
     }
 
     func makeNewsListView() -> some View {
@@ -56,3 +52,11 @@ class LoginCoordinator: Coordinator, ObservableObject {
         return newsListCoordinator.start()
     }
 }
+
+
+extension LoginCoordinator: Navigator {
+    func navigate(to route: LoginRoute) {
+        path.append(route)
+    }
+}
+

@@ -11,19 +11,19 @@ protocol LoginCoordinatorFactoryType {
 
 class LoginCoordinatorFactory: LoginCoordinatorFactoryType {
     private let navigationCoordinator: NavigationCoordinator
-    private let loginViewModelFactory: LoginViewModelFactory
     private let loginViewFactory: LoginViewFactory
+    private let loginViewModelFactory: LoginViewModelFactory
     private let newsListCoordinatorFactory: NewsListCoordinatorFactory
 
     init(
         navigationCoordinator: NavigationCoordinator,
-        loginViewModelFactory: LoginViewModelFactory,
         loginViewFactory: LoginViewFactory,
+        loginViewModelFactory: LoginViewModelFactory,
         newsListCoordinatorFactory: NewsListCoordinatorFactory
     ) {
         self.navigationCoordinator = navigationCoordinator
-        self.loginViewModelFactory = loginViewModelFactory
         self.loginViewFactory = loginViewFactory
+        self.loginViewModelFactory = loginViewModelFactory
         self.newsListCoordinatorFactory = newsListCoordinatorFactory
     }
 

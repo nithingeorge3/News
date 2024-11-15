@@ -7,13 +7,27 @@
 
 import SwiftUI
 
-//protocol LoginViewFactoryType {
-//    
-//}
+protocol LoginViewFactoryType {
+    func makeLoginView(onNavigation: @escaping (LoginRoute) -> Void) -> LoginView
+}
 
-class LoginViewFactory {
-    func makeLoginView(viewModel: LoginViewModel) -> any LoginViewProtocol {
-        LoginView(viewModel: viewModel)
+class LoginViewFactory: LoginViewFactoryType {
+    
+    private var loginViewModel: LoginViewModelFactory
+    
+    init(loginViewModel: LoginViewModelFactory) {
+        self.loginViewModel = loginViewModel
+    }
+    
+    func makeLoginView(onNavigation: @escaping (LoginRoute) -> Void) -> LoginView {
+        let viewModel = loginViewModel.makeLoginViewModel()
+        
+        // Subscribe to navigation events
+        viewModel.navigationPublisher
+            .sink(receiveValue: onNavigation)
+            .store(in: &viewModel.cancellables)
+        
+        return LoginView(viewModel: viewModel)
     }
 }
 

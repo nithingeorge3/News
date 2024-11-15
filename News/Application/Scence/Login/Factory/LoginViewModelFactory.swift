@@ -5,12 +5,12 @@
 //  Created by Nitin George on 02/11/2024.
 //
 
-protocol LoginViewModelFactoryType { // need to update
-    func makeLoginViewModel() -> any LoginViewModelProtocol
+protocol LoginViewModelFactoryType {
+    func makeLoginViewModel() -> LoginViewModel
 }
 
 class LoginViewModelFactory: LoginViewModelFactoryType {
-    func makeLoginViewModel() -> any LoginViewModelProtocol {
+    func makeLoginViewModel() -> LoginViewModel {
         return LoginViewModel()
     }
 }

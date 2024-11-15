@@ -12,7 +12,7 @@ protocol LoginViewProtocol: View {
     var viewModel: LoginViewModel { get }
 }
 
-struct LoginView: View, LoginViewProtocol {
+struct LoginView: View {//}, LoginViewProtocol {
     
     @ObservedObject var viewModel: LoginViewModel
     

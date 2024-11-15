@@ -17,7 +17,7 @@ class AppCoordinator: AppCoordinatorType {
         
         // Factories
         let loginViewModelFactory = LoginViewModelFactory()
-        let loginViewFactory = LoginViewFactory()
+        let loginViewFactory = LoginViewFactory(loginViewModel: loginViewModelFactory)
         let newsListViewFactory = NewsListViewFactory()
         let newsListViewModelFactory = NewsListViewModelFactory()
         let newsListCoordinatorFactory = NewsListCoordinatorFactory(newsListViewFactory: newsListViewFactory, newsListViewModelFactory: newsListViewModelFactory)
@@ -26,8 +26,8 @@ class AppCoordinator: AppCoordinatorType {
         
         let loginCoordinatorFactory = LoginCoordinatorFactory(
             navigationCoordinator: navigationCoordinator,
-            loginViewModelFactory: loginViewModelFactory,
             loginViewFactory: loginViewFactory,
+            loginViewModelFactory: loginViewModelFactory,
             newsListCoordinatorFactory: newsListCoordinatorFactory
         )
 
