@@ -12,11 +12,11 @@ protocol ListingCoordinatorFactoryType {
 
 class ListingCoordinatorFactory: ListingCoordinatorFactoryType {
     
-    private var listingViewFactory: ListingViewFactory
+    private var listingViewFactory: ListingViewFactoryType
     private var listingViewModelFactory: ListingViewModelFactoryType
     
     
-    init(listingViewFactory: ListingViewFactory, listingViewModelFactory: ListingViewModelFactoryType) {
+    init(listingViewFactory: ListingViewFactoryType, listingViewModelFactory: ListingViewModelFactoryType) {
         self.listingViewFactory = listingViewFactory
         self.listingViewModelFactory = listingViewModelFactory
     }

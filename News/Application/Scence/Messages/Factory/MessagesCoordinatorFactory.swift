@@ -11,10 +11,10 @@ protocol MessagesCoordinatorFactoryType {
 
 class MessagesCoordinatorFactory: MessagesCoordinatorFactoryType {
     
-    private var messagesViewFactory: MessagesViewFactory
+    private var messagesViewFactory: MessagesViewFactoryType
     private var messagesViewModelFactory: MessagesViewModelFactoryType
     
-    init(messagesViewFactory:MessagesViewFactory, messagesViewModelFactory: MessagesViewModelFactoryType) {
+    init(messagesViewFactory: MessagesViewFactoryType, messagesViewModelFactory: MessagesViewModelFactoryType) {
         self.messagesViewFactory = messagesViewFactory
         self.messagesViewModelFactory = messagesViewModelFactory
     }

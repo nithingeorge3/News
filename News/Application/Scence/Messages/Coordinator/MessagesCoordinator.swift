@@ -14,10 +14,10 @@ protocol MessagesCoordinatorType {
 
 class MessagesCoordinator: Coordinator {
     
-    private var messagesViewfactory: MessagesViewFactory
+    private var messagesViewfactory: MessagesViewFactoryType
     private var messagesViewModelFactory: MessagesViewModelFactoryType
     
-    init(messagesViewfactory: MessagesViewFactory, messagesViewModelFactory: MessagesViewModelFactoryType) {
+    init(messagesViewfactory: MessagesViewFactoryType, messagesViewModelFactory: MessagesViewModelFactoryType) {
         self.messagesViewfactory = messagesViewfactory
         self.messagesViewModelFactory = messagesViewModelFactory
     }

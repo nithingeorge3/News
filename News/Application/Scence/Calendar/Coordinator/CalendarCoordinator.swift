@@ -9,10 +9,10 @@ import SwiftUI
 
 class CalendarCoordinator: Coordinator {
     
-    private var calendarViewFactory: CalendarViewFactory
+    private var calendarViewFactory: CalendarViewFactoryType
     private var calenderViewModelFactory: CalendarViewModelFactory
     
-    init(calendarViewFactory: CalendarViewFactory, calenderViewModelFactory: CalendarViewModelFactory) {
+    init(calendarViewFactory: CalendarViewFactoryType, calenderViewModelFactory: CalendarViewModelFactory) {
         self.calendarViewFactory = calendarViewFactory
         self.calenderViewModelFactory = calenderViewModelFactory
     }

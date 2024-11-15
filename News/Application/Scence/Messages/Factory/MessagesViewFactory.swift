@@ -7,7 +7,11 @@
 
 import SwiftUI
 
-class MessagesViewFactory {
+protocol MessagesViewFactoryType {
+    func makeMessagesView(messagesViewModelFactory: MessagesViewModelFactoryType) -> MessagesView
+}
+
+class MessagesViewFactory: MessagesViewFactoryType {
     
     private var messagesViewModelFactory: MessagesViewModelFactoryType
     

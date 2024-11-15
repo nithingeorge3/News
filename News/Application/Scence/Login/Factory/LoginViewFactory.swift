@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+//protocol LoginViewFactoryType {
+//    
+//}
+
 class LoginViewFactory {
     func makeLoginView(viewModel: LoginViewModel) -> any LoginViewProtocol {
         LoginView(viewModel: viewModel)

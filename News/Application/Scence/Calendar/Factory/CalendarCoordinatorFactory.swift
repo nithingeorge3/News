@@ -11,10 +11,10 @@ protocol CalendarCoordinatorFactoryTye {
 
 class CalendarCoordinatorFactory: CalendarCoordinatorFactoryTye {
     
-    private var calendarViewFactory: CalendarViewFactory
+    private var calendarViewFactory: CalendarViewFactoryType
     private var calendarViewModelFactory: CalendarViewModelFactory
     
-    init(calendarViewFactory: CalendarViewFactory, calendarViewModelFactory: CalendarViewModelFactory) {
+    init(calendarViewFactory: CalendarViewFactoryType, calendarViewModelFactory: CalendarViewModelFactory) {
         self.calendarViewFactory = calendarViewFactory
         self.calendarViewModelFactory = calendarViewModelFactory
     }

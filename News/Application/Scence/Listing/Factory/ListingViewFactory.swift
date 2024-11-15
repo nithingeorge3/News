@@ -7,7 +7,11 @@
 
 import SwiftUI
 
-class ListingViewFactory {
+protocol ListingViewFactoryType {
+    func makeListingView(listingViewModelFactory: ListingViewModelFactoryType) -> ListingView
+}
+
+class ListingViewFactory: ListingViewFactoryType {
     func makeListingView(listingViewModelFactory: ListingViewModelFactoryType) -> ListingView {
         ListingView(viewModel: listingViewModelFactory.makeListingViewModel())
     }
