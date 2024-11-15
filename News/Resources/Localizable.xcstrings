@@ -73,6 +73,12 @@
     "Details for %@" : {
 
     },
+    "Hello, World!" : {
+
+    },
+    "ListingView" : {
+
+    },
     "Loading..." : {
 
     },
@@ -134,6 +140,12 @@
           }
         }
       }
+    },
+    "MenuView" : {
+
+    },
+    "MessagesView" : {
+
     },
     "News" : {
 
