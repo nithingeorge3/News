@@ -22,7 +22,7 @@ protocol LoginViewModelType: ObservableObject {
     func login()
     func togglePasswordVisibility()
     
-    var navigationPublisher: PassthroughSubject<Void, Never> { get set }
+    var navigationSubject: PassthroughSubject<Void, Never> { get set }
     
     var cancellables: Set<AnyCancellable> { get set }
 }
@@ -37,14 +37,14 @@ class LoginViewModel: ObservableObject {
     @Published var isLoginButtonEnabled: Bool = false
     @Published var isLoggedIn: Bool = false
     
-    var navigationPublisher = PassthroughSubject<LoginRoute, Never>()
+    var navigationSubject = PassthroughSubject<LoginRoute, Never>()
     
     var cancellables = Set<AnyCancellable>()
         
     func login() {
         // Perform validation or network request
         // For simplicity, assume login is always successful
-        navigationPublisher.send(.newsList)
+        navigationSubject.send(.newsList)
     }
     
     func togglePasswordVisibility() {

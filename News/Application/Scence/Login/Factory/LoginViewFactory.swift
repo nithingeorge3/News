@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import Combine
 
 protocol LoginViewFactoryType {
-    func makeLoginView(onNavigation: @escaping (LoginRoute) -> Void) -> LoginView
+    func makeLoginView(navigationSubject: PassthroughSubject<LoginRoute, Never>) -> LoginView
 }
 
 class LoginViewFactory: LoginViewFactoryType {
@@ -19,13 +20,10 @@ class LoginViewFactory: LoginViewFactoryType {
         self.loginViewModel = loginViewModel
     }
     
-    func makeLoginView(onNavigation: @escaping (LoginRoute) -> Void) -> LoginView {
+    func makeLoginView(navigationSubject: PassthroughSubject<LoginRoute, Never>) -> LoginView {
         let viewModel = loginViewModel.makeLoginViewModel()
         
-        // Subscribe to navigation events
-        viewModel.navigationPublisher
-            .sink(receiveValue: onNavigation)
-            .store(in: &viewModel.cancellables)
+        viewModel.navigationSubject = navigationSubject
         
         return LoginView(viewModel: viewModel)
     }

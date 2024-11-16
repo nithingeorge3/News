@@ -24,7 +24,9 @@ class LoginCoordinator: Coordinator, ObservableObject {
     private let loginViewModelFactory: LoginViewModelFactory
     private let loginViewFactory: LoginViewFactory
     private let newsListCoordinatorFactory: NewsListCoordinatorFactory
-
+    private var navigationSubject = PassthroughSubject<LoginRoute, Never>()
+    private var cancellables: Set<AnyCancellable> = []
+    
     init(
         navigationCoordinator: NavigationCoordinator,
         loginViewModelFactory: LoginViewModelFactory,
@@ -35,6 +37,13 @@ class LoginCoordinator: Coordinator, ObservableObject {
         self.loginViewModelFactory = loginViewModelFactory
         self.loginViewFactory = loginViewFactory
         self.newsListCoordinatorFactory = newsListCoordinatorFactory
+        
+        // Listen to navigation events from the subject
+        navigationSubject
+            .sink { [weak self] route in
+                self?.navigate(to: route)
+            }
+            .store(in: &cancellables)
     }
 
     func start() -> some View {
@@ -42,9 +51,7 @@ class LoginCoordinator: Coordinator, ObservableObject {
     }
 
     func makeLoginView() -> some View {
-        loginViewFactory.makeLoginView { [weak self] route in
-            self?.navigate(to: route)
-        }
+        loginViewFactory.makeLoginView(navigationSubject: navigationSubject)
     }
 
     func makeNewsListView() -> some View {
