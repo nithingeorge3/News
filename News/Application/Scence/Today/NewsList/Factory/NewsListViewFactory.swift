@@ -19,9 +19,12 @@ import SwiftUI
 //    }
 //}
 
+protocol NewsListViewFactoryType {
+    func makeNewsListView(listViewModelFactory: NewsListViewModelFactoryType) -> NewsListView
+}
 
-class NewsListViewFactory {
-    func makeNewsListView(listViewModelFactory: NewsListViewModelFactoryType) -> some View {
+class NewsListViewFactory: NewsListViewFactoryType {
+    func makeNewsListView(listViewModelFactory: NewsListViewModelFactoryType) -> NewsListView { //some View {
         
         let newsListViewModel = listViewModelFactory.makeNewsListViewModel()
         return NewsListView(viewModel: newsListViewModel)

@@ -22,10 +22,10 @@ import SwiftUI
 //}
 
 class NewsListCoordinator: Coordinator {
-    private let newsListViewFactory: NewsListViewFactory
+    private let newsListViewFactory: NewsListViewFactoryType
     private let newsListViewModelFactory: NewsListViewModelFactory
     
-    init(newsListViewFactory: NewsListViewFactory,
+    init(newsListViewFactory: NewsListViewFactoryType,
          newsListViewModelFactory: NewsListViewModelFactory
     ) {
         self.newsListViewFactory = newsListViewFactory

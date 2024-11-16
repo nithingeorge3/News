@@ -30,7 +30,7 @@ struct LoginCoordinatorView: View {
 #Preview {
     let navigationCoordinator = NavigationCoordinator()
     let loginViewModelFactory = LoginViewModelFactory()
-    let loginViewFactory = LoginViewFactory()
+    let loginViewFactory = LoginViewFactory(loginViewModel: loginViewModelFactory)
     let newsListViewFactory = NewsListViewFactory()
     let newsListViewModelFactory = NewsListViewModelFactory()
     
@@ -38,7 +38,6 @@ struct LoginCoordinatorView: View {
 
     let loginCoordinator = LoginCoordinator(
         navigationCoordinator: navigationCoordinator,
-        loginViewModelFactory: loginViewModelFactory,
         loginViewFactory: loginViewFactory,
         newsListCoordinatorFactory: newsListCoordinatorFactory
     )

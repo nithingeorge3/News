@@ -12,43 +12,43 @@ enum LoginRoute: Hashable {
     case newsList
 }
 
+protocol Navigator {
+    func navigate(to route: LoginRoute)
+}
+
 class LoginCoordinator: Coordinator, ObservableObject {
+   
     @Published var path: [LoginRoute] = []
+   
     private let navigationCoordinator: NavigationCoordinator
-    private let loginViewModelFactory: LoginViewModelFactory
     private let loginViewFactory: LoginViewFactory
     private let newsListCoordinatorFactory: NewsListCoordinatorFactory
-
+    private var navigationSubject = PassthroughSubject<LoginRoute, Never>()
+    private var cancellables: Set<AnyCancellable> = []
+    
     init(
         navigationCoordinator: NavigationCoordinator,
-        loginViewModelFactory: LoginViewModelFactory,
         loginViewFactory: LoginViewFactory,
         newsListCoordinatorFactory: NewsListCoordinatorFactory
     ) {
         self.navigationCoordinator = navigationCoordinator
-        self.loginViewModelFactory = loginViewModelFactory
         self.loginViewFactory = loginViewFactory
         self.newsListCoordinatorFactory = newsListCoordinatorFactory
+        
+        // Listen to navigation events from the subject
+        navigationSubject
+            .sink { [weak self] route in
+                self?.navigate(to: route)
+            }
+            .store(in: &cancellables)
     }
 
     func start() -> some View {
         LoginCoordinatorView(coordinator: self)
     }
 
-    func navigate(to route: LoginRoute) {
-        path.append(route)
-    }
-
     func makeLoginView() -> some View {
-        let viewModel = loginViewModelFactory.makeLoginViewModel()
-        
-        viewModel.loginSuccessSubject
-            .sink { [weak self] in
-                self?.navigate(to: .newsList)
-            }
-            .store(in: &viewModel.cancellables)
-        
-        return loginViewFactory.makeLoginView(viewModel: viewModel as! LoginViewModel)
+        loginViewFactory.makeLoginView(navigationSubject: navigationSubject)
     }
 
     func makeNewsListView() -> some View {
@@ -56,3 +56,11 @@ class LoginCoordinator: Coordinator, ObservableObject {
         return newsListCoordinator.start()
     }
 }
+
+
+extension LoginCoordinator: Navigator {
+    func navigate(to route: LoginRoute) {
+        path.append(route)
+    }
+}
+

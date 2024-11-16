@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-protocol LoginViewModelProtocol: ObservableObject {
+protocol LoginViewModelType: ObservableObject {
     // Input
     var username: String { get set }
     var password: String { get set }
@@ -22,12 +22,12 @@ protocol LoginViewModelProtocol: ObservableObject {
     func login()
     func togglePasswordVisibility()
     
-    var loginSuccessSubject: PassthroughSubject<Void, Never> { get set }
+    var navigationSubject: PassthroughSubject<Void, Never> { get set }
     
     var cancellables: Set<AnyCancellable> { get set }
 }
 
-class LoginViewModel: LoginViewModelProtocol {
+class LoginViewModel: ObservableObject {
         
     @Published var username: String = ""
     @Published var password: String = ""
@@ -37,14 +37,14 @@ class LoginViewModel: LoginViewModelProtocol {
     @Published var isLoginButtonEnabled: Bool = false
     @Published var isLoggedIn: Bool = false
     
-    var loginSuccessSubject = PassthroughSubject<Void, Never>()
+    var navigationSubject = PassthroughSubject<LoginRoute, Never>()
     
     var cancellables = Set<AnyCancellable>()
         
     func login() {
         // Perform validation or network request
         // For simplicity, assume login is always successful
-        loginSuccessSubject.send()
+        navigationSubject.send(.newsList)
     }
     
     func togglePasswordVisibility() {
