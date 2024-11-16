@@ -6,12 +6,18 @@
 //
 
 protocol CalendarViewFactoryType {
-    func makeCalendarView(calendarViewModelFactory: CalendarViewModelFactoryType) -> CalendarView
+    func makeCalendarView() -> CalendarView
 }
 
 class CalendarViewFactory: CalendarViewFactoryType {
     
-    func makeCalendarView(calendarViewModelFactory: CalendarViewModelFactoryType) -> CalendarView {
+    private var calendarViewModelFactory: CalendarViewModelFactoryType
+    
+    init(calendarViewModelFactory: CalendarViewModelFactoryType) {
+        self.calendarViewModelFactory = calendarViewModelFactory
+    }
+    
+    func makeCalendarView() -> CalendarView {
         CalendarView(viewModel: calendarViewModelFactory.makeCalanderViewModel())
     }
 }

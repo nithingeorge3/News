@@ -38,7 +38,6 @@ struct LoginCoordinatorView: View {
 
     let loginCoordinator = LoginCoordinator(
         navigationCoordinator: navigationCoordinator,
-        loginViewModelFactory: loginViewModelFactory,
         loginViewFactory: loginViewFactory,
         newsListCoordinatorFactory: newsListCoordinatorFactory
     )

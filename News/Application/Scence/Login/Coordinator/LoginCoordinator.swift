@@ -21,7 +21,6 @@ class LoginCoordinator: Coordinator, ObservableObject {
     @Published var path: [LoginRoute] = []
    
     private let navigationCoordinator: NavigationCoordinator
-    private let loginViewModelFactory: LoginViewModelFactory
     private let loginViewFactory: LoginViewFactory
     private let newsListCoordinatorFactory: NewsListCoordinatorFactory
     private var navigationSubject = PassthroughSubject<LoginRoute, Never>()
@@ -29,12 +28,10 @@ class LoginCoordinator: Coordinator, ObservableObject {
     
     init(
         navigationCoordinator: NavigationCoordinator,
-        loginViewModelFactory: LoginViewModelFactory,
         loginViewFactory: LoginViewFactory,
         newsListCoordinatorFactory: NewsListCoordinatorFactory
     ) {
         self.navigationCoordinator = navigationCoordinator
-        self.loginViewModelFactory = loginViewModelFactory
         self.loginViewFactory = loginViewFactory
         self.newsListCoordinatorFactory = newsListCoordinatorFactory
         

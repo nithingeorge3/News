@@ -27,7 +27,6 @@ class AppCoordinator: AppCoordinatorType {
         let loginCoordinatorFactory = LoginCoordinatorFactory(
             navigationCoordinator: navigationCoordinator,
             loginViewFactory: loginViewFactory,
-            loginViewModelFactory: loginViewModelFactory,
             newsListCoordinatorFactory: newsListCoordinatorFactory
         )
 

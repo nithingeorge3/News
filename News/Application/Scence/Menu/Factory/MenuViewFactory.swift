@@ -6,12 +6,18 @@
 //
 
 protocol MenuViewFactoryType {
-    func makeMenuView(menuViewModelFactory: MenuViewModelFactoryType) -> MenuView
+    func makeMenuView() -> MenuView
 }
 
 class MenuViewFactory: MenuViewFactoryType {
     
-    func makeMenuView(menuViewModelFactory: MenuViewModelFactoryType) -> MenuView {
+    private var menuViewModelFactory: MenuViewModelFactoryType
+    
+    init(menuViewModelFactory: MenuViewModelFactoryType) {
+        self.menuViewModelFactory = menuViewModelFactory
+    }
+    
+    func makeMenuView() -> MenuView {
         MenuView(viewModel: menuViewModelFactory.makeMenuViewModel())
     }
 }

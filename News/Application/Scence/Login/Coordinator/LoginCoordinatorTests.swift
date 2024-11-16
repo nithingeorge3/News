@@ -40,13 +40,9 @@ class LoginCoordinatorTests: XCTestCase {
         let loginCoordinatorFactory = LoginCoordinatorFactory(
             navigationCoordinator: navigationCoordinator,
             loginViewFactory: loginViewFactory,
-            loginViewModelFactory: loginViewModelFactory,
             newsListCoordinatorFactory: newsListCoordinatorFactory
         )
         let loginCoordinator = loginCoordinatorFactory.makeLoginCoordinator()
-
-        // Act
-//        let _ = loginCoordinator.start()
 
         // Assert
         XCTAssertTrue(loginCoordinator.path.isEmpty, "LoginCoordinator should start with an empty path")

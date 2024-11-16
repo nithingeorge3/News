@@ -10,14 +10,12 @@ import SwiftUI
 class MenuCoordinator: Coordinator {
     
     private var menuViewFactory: MenuViewFactoryType
-    private var menuViewModelFactory: MenuViewModelFactoryType
     
-    init(menuViewFactory: MenuViewFactoryType, menuViewModelFactory: MenuViewModelFactoryType) {
+    init(menuViewFactory: MenuViewFactoryType) {
         self.menuViewFactory = menuViewFactory
-        self.menuViewModelFactory = menuViewModelFactory
     }
     
     func start() -> some View {
-        menuViewFactory.makeMenuView(menuViewModelFactory: menuViewModelFactory)
+        menuViewFactory.makeMenuView()
     }
 }

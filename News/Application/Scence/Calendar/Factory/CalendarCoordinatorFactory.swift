@@ -12,14 +12,12 @@ protocol CalendarCoordinatorFactoryTye {
 class CalendarCoordinatorFactory: CalendarCoordinatorFactoryTye {
     
     private var calendarViewFactory: CalendarViewFactoryType
-    private var calendarViewModelFactory: CalendarViewModelFactory
     
-    init(calendarViewFactory: CalendarViewFactoryType, calendarViewModelFactory: CalendarViewModelFactory) {
+    init(calendarViewFactory: CalendarViewFactoryType) {
         self.calendarViewFactory = calendarViewFactory
-        self.calendarViewModelFactory = calendarViewModelFactory
     }
     
     func makeCalendarCoordinator() -> CalendarCoordinator {
-        CalendarCoordinator(calendarViewFactory: calendarViewFactory, calenderViewModelFactory: calendarViewModelFactory)
+        CalendarCoordinator(calendarViewFactory: calendarViewFactory)
     }
 }

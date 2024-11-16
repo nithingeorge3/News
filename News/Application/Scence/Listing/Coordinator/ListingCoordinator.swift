@@ -10,17 +10,14 @@ import SwiftUI
 
 class ListingCoordinator: Coordinator {
     
-    private var listingViewFactory: ListingViewFactoryType
-    private var listingViewModelFactory: ListingViewModelFactoryType
+    private var listingViewFactory: ListingViewFactoryType    
     
-    
-    init(listingViewFactory: ListingViewFactoryType, listingViewModelFactory: ListingViewModelFactoryType) {
+    init(listingViewFactory: ListingViewFactoryType) {
         self.listingViewFactory = listingViewFactory
-        self.listingViewModelFactory = listingViewModelFactory
     }
     
     
     func start() -> some View {
-        listingViewFactory.makeListingView(listingViewModelFactory: listingViewModelFactory)
+        listingViewFactory.makeListingView()
     }
 }

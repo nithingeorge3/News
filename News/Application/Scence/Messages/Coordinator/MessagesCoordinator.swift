@@ -15,14 +15,12 @@ protocol MessagesCoordinatorType {
 class MessagesCoordinator: Coordinator {
     
     private var messagesViewfactory: MessagesViewFactoryType
-    private var messagesViewModelFactory: MessagesViewModelFactoryType
     
-    init(messagesViewfactory: MessagesViewFactoryType, messagesViewModelFactory: MessagesViewModelFactoryType) {
+    init(messagesViewfactory: MessagesViewFactoryType) {
         self.messagesViewfactory = messagesViewfactory
-        self.messagesViewModelFactory = messagesViewModelFactory
     }
     
     func start() -> some View {
-        messagesViewfactory.makeMessagesView(messagesViewModelFactory: messagesViewModelFactory)
+        messagesViewfactory.makeMessagesView()
     }
 }

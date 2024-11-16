@@ -12,14 +12,12 @@ protocol MenuCoordinatorFactoryType {
 class MenuCoordinatorFactory: MenuCoordinatorFactoryType {
     
     private var menuViewFactory: MenuViewFactoryType
-    private var menuViewModelFactory: MenuViewModelFactoryType
     
-    init(menuViewFactory: MenuViewFactoryType, menuViewModelFactory: MenuViewModelFactoryType) {
+    init(menuViewFactory: MenuViewFactoryType) {
         self.menuViewFactory = menuViewFactory
-        self.menuViewModelFactory = menuViewModelFactory
     }
     
     func makeMenuCoordinator() -> MenuCoordinator {
-        MenuCoordinator(menuViewFactory: menuViewFactory, menuViewModelFactory: menuViewModelFactory)
+        MenuCoordinator(menuViewFactory: menuViewFactory)
     }
 }

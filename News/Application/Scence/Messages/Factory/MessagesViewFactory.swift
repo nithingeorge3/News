@@ -8,7 +8,7 @@
 import SwiftUI
 
 protocol MessagesViewFactoryType {
-    func makeMessagesView(messagesViewModelFactory: MessagesViewModelFactoryType) -> MessagesView
+    func makeMessagesView() -> MessagesView
 }
 
 class MessagesViewFactory: MessagesViewFactoryType {
@@ -19,7 +19,7 @@ class MessagesViewFactory: MessagesViewFactoryType {
         self.messagesViewModelFactory = messagesViewModelFactory
     }
     
-    func makeMessagesView(messagesViewModelFactory: MessagesViewModelFactoryType) -> MessagesView {
+    func makeMessagesView() -> MessagesView {
         MessagesView(viewModel: messagesViewModelFactory.makeMessagesViewModel())
     }
 

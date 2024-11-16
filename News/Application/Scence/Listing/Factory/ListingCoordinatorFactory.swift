@@ -13,15 +13,13 @@ protocol ListingCoordinatorFactoryType {
 class ListingCoordinatorFactory: ListingCoordinatorFactoryType {
     
     private var listingViewFactory: ListingViewFactoryType
-    private var listingViewModelFactory: ListingViewModelFactoryType
     
     
-    init(listingViewFactory: ListingViewFactoryType, listingViewModelFactory: ListingViewModelFactoryType) {
+    init(listingViewFactory: ListingViewFactoryType) {
         self.listingViewFactory = listingViewFactory
-        self.listingViewModelFactory = listingViewModelFactory
     }
     
     func makeListingCoordinator() -> ListingCoordinator {
-        ListingCoordinator(listingViewFactory: listingViewFactory, listingViewModelFactory: listingViewModelFactory)
+        ListingCoordinator(listingViewFactory: listingViewFactory)
     }
 }

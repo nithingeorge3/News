@@ -8,11 +8,18 @@
 import SwiftUI
 
 protocol ListingViewFactoryType {
-    func makeListingView(listingViewModelFactory: ListingViewModelFactoryType) -> ListingView
+    func makeListingView() -> ListingView
 }
 
 class ListingViewFactory: ListingViewFactoryType {
-    func makeListingView(listingViewModelFactory: ListingViewModelFactoryType) -> ListingView {
+    
+    private var listingViewModelFactory: ListingViewModelFactoryType
+    
+    init(listingViewModelFactory: ListingViewModelFactoryType) {
+        self.listingViewModelFactory = listingViewModelFactory
+    }
+    
+    func makeListingView() -> ListingView {
         ListingView(viewModel: listingViewModelFactory.makeListingViewModel())
     }
 }
