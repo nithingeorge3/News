@@ -36,7 +36,6 @@ class AppTabViewFactory: AppTabViewFactoryType {
         self.menuCoordinator = menuCoordinator
     }
     
-    // TabItem Array
     private let tabs: [TabItem] = [
         TabItem(title: "Today", icon: "checkmark.square", badgeCount: nil, color: .black),
         TabItem(title: "Calendar", icon: "calendar", badgeCount: nil, color: .black),

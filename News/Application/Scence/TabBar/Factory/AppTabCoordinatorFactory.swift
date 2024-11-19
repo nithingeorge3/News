@@ -15,9 +15,10 @@ class AppTabCoordinatorFactory: AppTabCoordinatorFactoryType {
     func makeAppTabCoordinator() -> AppTabCoordinator {
         
         
-        let newsListViewFactory = NewsListViewFactory()
+        
         let newsListViewModelFactory = NewsListViewModelFactory()
-        let newsListCoordinatorFactory = NewsListCoordinatorFactory(newsListViewFactory: newsListViewFactory, newsListViewModelFactory: newsListViewModelFactory)
+        let newsListViewFactory = NewsListViewFactory(newsListViewModelFactory: newsListViewModelFactory)
+        let newsListCoordinatorFactory = NewsListCoordinatorFactory(newsListViewFactory: newsListViewFactory)
         let newsListCoordinator = newsListCoordinatorFactory.makeNewsListCoordinator()
         
         let calendarViewModelFactory = CalendarViewModelFactory()
