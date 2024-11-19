@@ -45,8 +45,12 @@ class LoginViewModel: ObservableObject {
         self.navigationSubject = onNavigationSubject
     }
     
-    func login() {
+    func performLogin() {
         navigationSubject.send(.success)
+    }
+    
+    func performSignUp() {
+        navigationSubject.send(.signUp)
     }
     
     func togglePasswordVisibility() {

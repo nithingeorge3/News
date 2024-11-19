@@ -20,11 +20,20 @@ protocol Navigator {
 }
 
 class LoginCoordinator: Coordinator {
-    private var cancellables: Set<AnyCancellable> = []
-    private let navigationSubject: PassthroughSubject<LoginRoute, Never> // Shared subject
     
-    init(onNavigationSubject: PassthroughSubject<LoginRoute, Never>) {
-        self.navigationSubject = onNavigationSubject
+    private let navigationCoordinator: NavigationCoordinator
+    private let loginViewFactory: LoginViewFactory
+    
+    private var cancellables: Set<AnyCancellable> = []
+    private let navigationSubject: PassthroughSubject<LoginRoute, Never>
+    
+    init(
+    navigationCoordinator: NavigationCoordinator,
+    loginViewFactory: LoginViewFactory,
+    navigationSubject: PassthroughSubject<LoginRoute, Never>) {
+        self.navigationCoordinator = navigationCoordinator
+        self.loginViewFactory = loginViewFactory
+        self.navigationSubject = navigationSubject
     }
     
     func start() -> some View {

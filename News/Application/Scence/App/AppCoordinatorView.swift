@@ -11,14 +11,16 @@ import NetworkModule
 
 struct AppCoordinatorView: View {
     @ObservedObject var appCoordinator: AppCoordinator
-
+    var loginCoordinator: LoginCoordinator
+    var appTabCoordinator: AppTabCoordinator
+    
     var body: some View {
         Group {
             switch appCoordinator.appState {
             case .loggedOut:
                 loginFlow
             case .loggedIn:
-                AppTabView()
+                appTabCoordinator.start()
             }
         }
         .onAppear {
@@ -32,15 +34,13 @@ struct AppCoordinatorView: View {
 
     private var loginFlow: some View {
         NavigationStack(path: appCoordinator.navigationPathBinding) {
-            LoginView(viewModel: LoginViewModel(onNavigationSubject: appCoordinator.navigationSubject))
+            loginCoordinator.start()
                 .navigationDestination(for: LoginRoute.self) { route in
                     switch route {
-                    case .forgot:
-                        EmptyView()
                     case .signUp:
-                        EmptyView()
-                    default:
-                        EmptyView()
+                        SignUpView()
+                    @unknown default:
+                        fatalError("Unhandled route: \(route)")
                     }
                 }
         }

@@ -199,6 +199,9 @@
         }
       }
     },
+    "SignUpView" : {
+
+    },
     "Username Title" : {
       "comment" : "Login Username Title",
       "extractionState" : "manual",

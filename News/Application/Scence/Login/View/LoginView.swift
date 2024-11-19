@@ -67,7 +67,7 @@ struct LoginView: View {//}, LoginViewProtocol {
             .padding(.horizontal)
             
             Button(action: {
-                viewModel.login()
+                viewModel.performLogin()
             }) {
                 Text("Login Button Title")
                     .font(.headline)
@@ -87,7 +87,7 @@ struct LoginView: View {//}, LoginViewProtocol {
                     .foregroundColor(.gray)
                 
                 Button(action: {
-                    // Handle sign up action here
+                    viewModel.performSignUp()
                 }) {
                     Text("Sign Up buttton title")
                         .foregroundColor(.blue)

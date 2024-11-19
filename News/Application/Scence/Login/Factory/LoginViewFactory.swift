@@ -8,24 +8,22 @@
 import SwiftUI
 import Combine
 
+//    func makeLoginView(navigationSubject: PassthroughSubject<LoginRoute, Never>) -> LoginView
+
 protocol LoginViewFactoryType {
-    func makeLoginView(navigationSubject: PassthroughSubject<LoginRoute, Never>) -> LoginView
+    func makeLoginView() -> LoginView
 }
 
-//class LoginViewFactory: LoginViewFactoryType {
-//    
-//    private var loginViewModel: LoginViewModelFactory
-//    
-//    init(loginViewModel: LoginViewModelFactory) {
-//        self.loginViewModel = loginViewModel
-//    }
-//    
-//    func makeLoginView(navigationSubject: PassthroughSubject<LoginRoute, Never>) -> LoginView {
-//        let viewModel = loginViewModel.makeLoginViewModel()
-//        
-//        viewModel.navigationSubject = navigationSubject
-//        
-//        return LoginView(viewModel: viewModel)
-//    }
-//}
+class LoginViewFactory: LoginViewFactoryType {
+    
+    private var viewModel: LoginViewModel
+    
+    init(viewModel: LoginViewModel) {
+        self.viewModel = viewModel
+    }
+    
+    func makeLoginView() -> LoginView {
+        return LoginView(viewModel: viewModel)
+    }
+}
 
