@@ -63,6 +63,9 @@
     "%lld" : {
 
     },
+    "CalendarView" : {
+
+    },
     "Create new account title" : {
       "localizations" : {
         "en" : {
@@ -72,9 +75,6 @@
           }
         }
       }
-    },
-    "Hello, World!" : {
-
     },
     "ListingView" : {
 
