@@ -60,6 +60,9 @@
         }
       }
     },
+    "%lld" : {
+
+    },
     "Create new account title" : {
       "localizations" : {
         "en" : {
@@ -70,22 +73,13 @@
         }
       }
     },
-    "Details for %@" : {
-
-    },
     "Hello, World!" : {
-
-    },
-    "Home" : {
 
     },
     "ListingView" : {
 
     },
     "Loading..." : {
-
-    },
-    "LOGIN" : {
 
     },
     "Login Button Title" : {
@@ -144,22 +138,10 @@
         }
       }
     },
-    "Logout" : {
-
-    },
-    "MenuView" : {
-
-    },
-    "Messages" : {
-
-    },
     "MessagesView" : {
 
     },
     "News" : {
-
-    },
-    "Notifications" : {
 
     },
     "Ooops..." : {
@@ -177,13 +159,7 @@
         }
       }
     },
-    "Profile" : {
-
-    },
     "Retry" : {
-
-    },
-    "Search" : {
 
     },
     "Sidebar" : {
@@ -200,6 +176,12 @@
       }
     },
     "SignUpView" : {
+
+    },
+    "TEST" : {
+
+    },
+    "Unknown Tab" : {
 
     },
     "Username Title" : {

@@ -9,4 +9,8 @@ import Combine
 
 class MenuViewModel: ObservableObject {
     
+    func performLogOut() {
+        print("LOGOUT!!!")
+    }
+    
 }
