@@ -24,12 +24,12 @@ struct CustomTabBar: View {
                 }
             }
             .padding(.horizontal)
-            .padding(.top, 10) // Adjusted top padding
-            .padding(.bottom, 10) // Adjusted bottom padding for safe area
-            .background(Color.white) // Removed shadow to eliminate any lines
+            .padding(.top, 10)
+            .padding(.bottom, 10)
+            .background(Color.white)
         }
-        .background(Color.white) // Ensure the entire background is white, no shadow
-        .padding(.bottom, safeAreaInsets().bottom) // Safe area padding
+        .background(Color.white)
+        .padding(.bottom, safeAreaInsets().bottom)
     }
     
     private func safeAreaInsets() -> UIEdgeInsets {

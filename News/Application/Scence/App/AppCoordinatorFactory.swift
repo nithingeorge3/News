@@ -46,6 +46,6 @@ class AppCoordinatorFactory : AppCoordinatorViewFactoryType {
     }
     
     func makeAppTabCoordinator() -> AppTabCoordinator {
-        AppTabFactory().makeAppTabCoordinator()
+        AppTabCoordinatorFactory().makeAppTabCoordinator()
     }
 }

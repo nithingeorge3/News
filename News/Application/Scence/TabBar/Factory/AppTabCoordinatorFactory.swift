@@ -6,13 +6,13 @@
 //
 
 
-protocol AppTabFactoryType {
+protocol AppTabCoordinatorFactoryType {
     func makeAppTabCoordinator() -> AppTabCoordinator
 }
 
-class AppTabFactory: AppTabFactoryType {
+class AppTabCoordinatorFactory: AppTabCoordinatorFactoryType {
     
     func makeAppTabCoordinator() -> AppTabCoordinator {
-        AppTabCoordinator()
+        AppTabCoordinator(appTabViewFactory: AppTabViewFactory())
     }
 }

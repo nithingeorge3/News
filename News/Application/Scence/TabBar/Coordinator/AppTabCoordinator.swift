@@ -9,7 +9,15 @@ import SwiftUI
 
 class AppTabCoordinator: Coordinator {
     
+    let appTabViewFactory: AppTabViewFactory
+    
+    //private var tabs: [TabBarItem] = []
+    
+    init(appTabViewFactory: AppTabViewFactory) {
+        self.appTabViewFactory = appTabViewFactory
+    }
+    
     func start() -> some View {
-        AppTabView()
+        appTabViewFactory.makeAppTabView()
     }
 }
