@@ -9,7 +9,6 @@ protocol ListingCoordinatorFactoryType {
     func makeListingCoordinator() -> ListingCoordinator
 }
 
-
 class ListingCoordinatorFactory: ListingCoordinatorFactoryType {
     
     private var listingViewFactory: ListingViewFactoryType
@@ -20,6 +19,7 @@ class ListingCoordinatorFactory: ListingCoordinatorFactoryType {
     }
     
     func makeListingCoordinator() -> ListingCoordinator {
-        ListingCoordinator(listingViewFactory: listingViewFactory)
+        let tabItem = TabItem(title: "Listings", icon: "house", badgeCount: nil, color: .black)
+        return ListingCoordinator(listingViewFactory: listingViewFactory, tabItem: tabItem)
     }
 }

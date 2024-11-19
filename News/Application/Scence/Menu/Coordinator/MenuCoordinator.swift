@@ -7,12 +7,18 @@
 
 import SwiftUI
 
-class MenuCoordinator: Coordinator {
+class MenuCoordinator: Coordinator, TabItemProvider {
     
     private var menuViewFactory: MenuViewFactoryType
+    private let _tabItem: TabItem
     
-    init(menuViewFactory: MenuViewFactoryType) {
+    var tabItem: TabItem {
+        _tabItem
+    }
+    
+    init(menuViewFactory: MenuViewFactoryType, tabItem: TabItem) {
         self.menuViewFactory = menuViewFactory
+        _tabItem = tabItem
     }
     
     func start() -> some View {

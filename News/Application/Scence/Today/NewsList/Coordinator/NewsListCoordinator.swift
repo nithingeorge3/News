@@ -7,12 +7,19 @@
 
 import SwiftUI
 
-class NewsListCoordinator: Coordinator {
-    private let newsListViewFactory: NewsListViewFactoryType
-//    let tab: TabItem
+class NewsListCoordinator: Coordinator, TabItemProvider {
     
-    init(newsListViewFactory: NewsListViewFactoryType) {
+    private let newsListViewFactory: NewsListViewFactoryType
+    private let _tabItem: TabItem
+    
+    var tabItem: TabItem {
+        _tabItem
+    }
+    
+    init(newsListViewFactory: NewsListViewFactoryType,
+         tabItem: TabItem) {
         self.newsListViewFactory = newsListViewFactory
+        _tabItem = tabItem
     }
 
     func start() -> some View {

@@ -41,11 +41,13 @@ class AppTabCoordinatorFactory: AppTabCoordinatorFactoryType {
         let menuCoordinatorFactory = MenuCoordinatorFactory(menuViewFactory: menuViewFactory)
         let menuCoordinator = menuCoordinatorFactory.makeMenuCoordinator()
         
-        let viewFactory = AppTabViewFactory(newsListCoordinator: newsListCoordinator,
-                                                  calendarCoordinator: calendarCoordinator,
-                                                  listingCoordinator: listingCoordinator,
-                                                  messagesCoordinator: messagesCoordinator,
-                                                  menuCoordinator: menuCoordinator)
+//        let viewFactory = AppTabViewFactory(newsListCoordinator: newsListCoordinator,
+//                                                  calendarCoordinator: calendarCoordinator,
+//                                                  listingCoordinator: listingCoordinator,
+//                                                  messagesCoordinator: messagesCoordinator,
+//                                                  menuCoordinator: menuCoordinator)
+        
+        let viewFactory = AppTabViewFactory(coordinators: [newsListCoordinator, calendarCoordinator, listingCoordinator, messagesCoordinator, menuCoordinator])
         
         return AppTabCoordinator(appTabViewFactory: viewFactory)
     }

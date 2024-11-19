@@ -23,34 +23,17 @@ class AppTabViewFactory: AppTabViewFactoryType {
     private var listingCoordinator: ListingCoordinator!
     private var messagesCoordinator: MessagesCoordinator!
     private var menuCoordinator: MenuCoordinator!
+
+    private var coordinators: [any TabItemProvider]
     
-    init(newsListCoordinator: NewsListCoordinator,
-         calendarCoordinator: CalendarCoordinator,
-         listingCoordinator: ListingCoordinator,
-         messagesCoordinator: MessagesCoordinator,
-         menuCoordinator: MenuCoordinator) {
-        self.newsListCoordinator = newsListCoordinator
-        self.calendarCoordinator = calendarCoordinator
-        self.listingCoordinator = listingCoordinator
-        self.messagesCoordinator = messagesCoordinator
-        self.menuCoordinator = menuCoordinator
+    init(coordinators: [any TabItemProvider]) {
+        self.coordinators = coordinators
     }
     
-    private let tabs: [TabItem] = [
-        TabItem(title: "Today", icon: "checkmark.square", badgeCount: nil, color: .black),
-        TabItem(title: "Calendar", icon: "calendar", badgeCount: nil, color: .black),
-        TabItem(title: "Listings", icon: "house", badgeCount: nil, color: .black),
-        TabItem(title: "Messages", icon: "message", badgeCount: 1, color: .black),
-        TabItem(title: "Menu", icon: "line.horizontal.3", badgeCount: nil, color: .black)
-    ]
+    var tabs: [TabItem] {
+        coordinators.map { $0.tabItem }
+    }
     
-    // View Models for Each Tab
-    private let newsListViewModel = NewsListViewModel(articleService: ArticleServiceFactory.articleService())
-    private let calendarViewModel = CalendarViewModel()
-    private let listingViewModel = ListingViewModel()
-    private let messagesViewModel = MessagesViewModel()
-    private let menuViewModel = MenuViewModel()
-
     func makeAppTabView() -> AppTabView {
         AppTabView(
             tabs: tabs,
@@ -60,20 +43,12 @@ class AppTabViewFactory: AppTabViewFactoryType {
 }
 
 extension AppTabViewFactory: TabProvider {
+    
     func view(for tabID: UUID) -> AnyView {
-        switch tabID {
-        case tabs[0].id:
-            AnyView(newsListCoordinator.start())
-        case tabs[1].id:
-            AnyView(calendarCoordinator.start())
-        case tabs[2].id:
-            AnyView(listingCoordinator.start())
-        case tabs[3].id:
-            AnyView(messagesCoordinator.start())
-        case tabs[4].id:
-            AnyView(menuCoordinator.start())
-        default:
-            AnyView(Text("Unknown Tab").foregroundColor(.black))
+        // Find the coordinator whose `tabItem` matches the `tabID`
+        guard let coordinator = coordinators.first(where: { $0.tabItem.id == tabID }) else {
+            return AnyView(Text("Unknown Tab").foregroundColor(.black)) // Fallback view
         }
+        return coordinator.start() as! AnyView // Generate the view using the coordinator
     }
 }

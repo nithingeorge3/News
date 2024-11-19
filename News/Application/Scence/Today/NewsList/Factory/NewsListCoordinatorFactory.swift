@@ -17,6 +17,7 @@ class NewsListCoordinatorFactory: NewsListCoordinatorFactoryType {
     }
 
     func makeNewsListCoordinator() -> NewsListCoordinator {
-        return NewsListCoordinator(newsListViewFactory: newsListViewFactory)
+        let tabItem = TabItem(title: "Today", icon: "checkmark.square", badgeCount: nil, color: .black)
+        return NewsListCoordinator(newsListViewFactory: newsListViewFactory, tabItem: tabItem)
     }
 }

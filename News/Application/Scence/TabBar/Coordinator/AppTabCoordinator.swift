@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+protocol TabItemProvider: Coordinator {
+    var tabItem: TabItem { get }
+}
+
 class AppTabCoordinator: Coordinator {
     
     let appTabViewFactory: AppTabViewFactory

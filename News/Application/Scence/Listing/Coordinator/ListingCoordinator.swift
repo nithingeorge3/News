@@ -8,12 +8,18 @@
 import Foundation
 import SwiftUI
 
-class ListingCoordinator: Coordinator {
+class ListingCoordinator: Coordinator, TabItemProvider {
     
     private var listingViewFactory: ListingViewFactoryType    
+    private let _tabItem: TabItem
     
-    init(listingViewFactory: ListingViewFactoryType) {
+    var tabItem: TabItem {
+        _tabItem
+    }
+
+    init(listingViewFactory: ListingViewFactoryType, tabItem: TabItem) {
         self.listingViewFactory = listingViewFactory
+        _tabItem = tabItem
     }
     
     
