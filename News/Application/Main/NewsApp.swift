@@ -11,11 +11,11 @@ import SwiftUI
 struct MyApp: App {
     
     private var appEnvironment: AppEnvironment!
-    private var appCoordinator: AnyCoordinator<AnyView>
+    private var appCoordinator: AppCoordinator!
     
     init() {
         appEnvironment = AppEnvironment.default()
-        appCoordinator = AnyCoordinator(appEnvironment.makeAppCoordinator())
+        appCoordinator = appEnvironment.makeAppCoordinator()
     }
 
     var body: some Scene {

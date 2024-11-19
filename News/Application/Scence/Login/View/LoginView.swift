@@ -8,10 +8,10 @@
 import SwiftUI
 import Combine
 
-protocol LoginViewProtocol: View {
-    var viewModel: LoginViewModel { get }
-}
-
+//protocol LoginViewProtocol: View {
+//    var viewModel: LoginViewModel { get }
+//}
+//
 struct LoginView: View {//}, LoginViewProtocol {
     
     @ObservedObject var viewModel: LoginViewModel
@@ -100,6 +100,6 @@ struct LoginView: View {//}, LoginViewProtocol {
     }
 }
 
-#Preview {
-    LoginView(viewModel: LoginViewModel())
-}
+//#Preview {
+//    LoginView(viewModel: LoginViewModel())
+//}

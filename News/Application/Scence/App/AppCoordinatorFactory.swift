@@ -5,11 +5,17 @@
 //  Created by Nitin George on 03/11/2024.
 //
 
-protocol AppCoordinatorFactory {
+protocol AppCoordinatorFactoryType {
     func makeAppCoordinator() -> AppCoordinator
 }
 
-extension AppEnvironment : AppCoordinatorFactory {
+extension AppEnvironment : AppCoordinatorFactoryType {
+    func makeAppCoordinator() -> AppCoordinator {
+        AppCoordinator()
+    }
+}
+
+class AppCoordinatorFactory : AppCoordinatorFactoryType {
     func makeAppCoordinator() -> AppCoordinator {
         AppCoordinator()
     }

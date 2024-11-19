@@ -37,18 +37,19 @@ class LoginViewModel: ObservableObject {
     @Published var isLoginButtonEnabled: Bool = false
     @Published var isLoggedIn: Bool = false
     
-    var navigationSubject = PassthroughSubject<LoginRoute, Never>()
-    
     var cancellables = Set<AnyCancellable>()
-        
+    
+    private var navigationSubject: PassthroughSubject<LoginRoute, Never>
+    
+    init(onNavigationSubject: PassthroughSubject<LoginRoute, Never>) {
+        self.navigationSubject = onNavigationSubject
+    }
+    
     func login() {
-        // Perform validation or network request
-        // For simplicity, assume login is always successful
-        navigationSubject.send(.newsList)
+        navigationSubject.send(.success)
     }
     
     func togglePasswordVisibility() {
         isPasswordVisible.toggle()
     }
-    
 }

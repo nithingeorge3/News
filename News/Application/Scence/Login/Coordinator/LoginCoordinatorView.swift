@@ -9,42 +9,42 @@ import SwiftUI
 
 import SwiftUI
 
-struct LoginCoordinatorView: View {
-    @ObservedObject var coordinator: LoginCoordinator
-
-    var body: some View {
-        NavigationStack(path: $coordinator.path) {
-            coordinator.makeLoginView()
-                .navigationDestination(for: LoginRoute.self) { route in
-                    switch route {
-                    case .newsList:
-                        coordinator.makeNewsListView()
-                    }
-                }
-        }
-    }
-}
+//struct LoginCoordinatorView: View {
+//    @ObservedObject var coordinator: LoginCoordinator
+//
+//    var body: some View {
+//        NavigationStack(path: $coordinator.path) {
+//            coordinator.makeLoginView()
+//                .navigationDestination(for: LoginRoute.self) { route in
+//                    switch route {
+//                    case .newsList:
+//                        coordinator.makeNewsListView()
+//                    }
+//                }
+//        }
+//    }
+//}
 
 //Testing LoginCoordinatorView
 //To ensure that LoginCoordinatorView works correctly, you can write SwiftUI previews or unit tests
-#Preview {
-    let navigationCoordinator = NavigationCoordinator()
-    let loginViewModelFactory = LoginViewModelFactory()
-    let loginViewFactory = LoginViewFactory(loginViewModel: loginViewModelFactory)
-    let newsListViewFactory = NewsListViewFactory()
-    let newsListViewModelFactory = NewsListViewModelFactory()
-    
-    let newsListCoordinatorFactory = NewsListCoordinatorFactory(newsListViewFactory: newsListViewFactory, newsListViewModelFactory: newsListViewModelFactory)
-
-    let loginCoordinator = LoginCoordinator(
-        navigationCoordinator: navigationCoordinator,
-        loginViewFactory: loginViewFactory,
-        newsListCoordinatorFactory: newsListCoordinatorFactory
-    )
-
-    LoginCoordinatorView(coordinator: loginCoordinator)
-
-}
+//#Preview {
+//    let navigationCoordinator = NavigationCoordinator()
+//    let loginViewModelFactory = LoginViewModelFactory()
+//    let loginViewFactory = LoginViewFactory(loginViewModel: loginViewModelFactory)
+//    let newsListViewFactory = NewsListViewFactory()
+//    let newsListViewModelFactory = NewsListViewModelFactory()
+//    
+//    let newsListCoordinatorFactory = NewsListCoordinatorFactory(newsListViewFactory: newsListViewFactory, newsListViewModelFactory: newsListViewModelFactory)
+//
+//    let loginCoordinator = LoginCoordinator(
+//        navigationCoordinator: navigationCoordinator,
+//        loginViewFactory: loginViewFactory,
+//        newsListCoordinatorFactory: newsListCoordinatorFactory
+//    )
+//
+//    LoginCoordinatorView(coordinator: loginCoordinator)
+//
+//}
 
 
 //

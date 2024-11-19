@@ -76,6 +76,9 @@
     "Hello, World!" : {
 
     },
+    "Home" : {
+
+    },
     "ListingView" : {
 
     },
@@ -141,13 +144,22 @@
         }
       }
     },
+    "Logout" : {
+
+    },
     "MenuView" : {
+
+    },
+    "Messages" : {
 
     },
     "MessagesView" : {
 
     },
     "News" : {
+
+    },
+    "Notifications" : {
 
     },
     "Ooops..." : {
@@ -165,7 +177,13 @@
         }
       }
     },
+    "Profile" : {
+
+    },
     "Retry" : {
+
+    },
+    "Search" : {
 
     },
     "Sidebar" : {
