@@ -5,17 +5,16 @@
 //  Created by Nitin George on 18/11/2024.
 //
 
+import Combine
 
 protocol AppTabCoordinatorFactoryType {
-    func makeAppTabCoordinator() -> AppTabCoordinator
+    func makeAppTabCoordinator(navigationSubject: PassthroughSubject<LoginRoute, Never>) -> AppTabCoordinator
 }
 
 class AppTabCoordinatorFactory: AppTabCoordinatorFactoryType {
     
-    func makeAppTabCoordinator() -> AppTabCoordinator {
-        
-        
-        
+    func makeAppTabCoordinator(navigationSubject: PassthroughSubject<LoginRoute, Never>) -> AppTabCoordinator {
+                
         let newsListViewModelFactory = NewsListViewModelFactory()
         let newsListViewFactory = NewsListViewFactory(newsListViewModelFactory: newsListViewModelFactory)
         let newsListCoordinatorFactory = NewsListCoordinatorFactory(newsListViewFactory: newsListViewFactory)
@@ -36,18 +35,16 @@ class AppTabCoordinatorFactory: AppTabCoordinatorFactoryType {
         let messagesCoordinatorFactory = MessagesCoordinatorFactory(messagesViewFactory: messagesViewFactory)
         let messagesCoordinator = messagesCoordinatorFactory.makeMessagesCoordinator()
         
-        let menuViewModelFactory = MenuViewModelFactory()
+        let menuViewModelFactory = MenuViewModelFactory(navigationSubject: navigationSubject)
         let menuViewFactory = MenuViewFactory(menuViewModelFactory: menuViewModelFactory)
         let menuCoordinatorFactory = MenuCoordinatorFactory(menuViewFactory: menuViewFactory)
         let menuCoordinator = menuCoordinatorFactory.makeMenuCoordinator()
         
-//        let viewFactory = AppTabViewFactory(newsListCoordinator: newsListCoordinator,
-//                                                  calendarCoordinator: calendarCoordinator,
-//                                                  listingCoordinator: listingCoordinator,
-//                                                  messagesCoordinator: messagesCoordinator,
-//                                                  menuCoordinator: menuCoordinator)
-        
-        let viewFactory = AppTabViewFactory(coordinators: [newsListCoordinator, calendarCoordinator, listingCoordinator, messagesCoordinator, menuCoordinator])
+        let viewFactory = AppTabViewFactory(coordinators: [newsListCoordinator,
+                                                           calendarCoordinator,
+                                                           listingCoordinator,
+                                                           messagesCoordinator,
+                                                           menuCoordinator])
         
         return AppTabCoordinator(appTabViewFactory: viewFactory)
     }

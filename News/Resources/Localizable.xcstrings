@@ -66,6 +66,9 @@
     "CalendarView" : {
 
     },
+    "Cancel" : {
+
+    },
     "Create new account title" : {
       "localizations" : {
         "en" : {
@@ -80,6 +83,9 @@
 
     },
     "Loading..." : {
+
+    },
+    "Log Out" : {
 
     },
     "Login Button Title" : {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SidebarItem: Identifiable {
     let id = UUID()
@@ -14,6 +15,7 @@ struct SidebarItem: Identifiable {
 
 struct MenuView: View {
     
+    @State private var showBottomSheet = false
     @ObservedObject var viewModel: MenuViewModel
     
     let items = [
@@ -46,16 +48,35 @@ struct MenuView: View {
                     textColor: .white,
                     cornerRadius: 12
                 ) {
-                    viewModel.performLogOut()
+                    showBottomSheet.toggle()
                 }
                 .padding(.horizontal)
                 .padding(.bottom, 40) // Optional: Add spacing from the bottom
+                
+                .sheet(isPresented: $showBottomSheet, content: {
+                    BottomLogOutSheet(
+                        onLogout: {
+                            print("Logged Out")
+                            showBottomSheet = false
+                            viewModel.performLogOut()
+                        },
+                        onCancel: {
+                            print("Cancelled")
+                            showBottomSheet = false
+                        }
+                    )
+                    .background(Color.clear) // Transparent background for the sheet
+                    .presentationDetents([.fraction(0.25)]) // Adjust height dynamically
+                    .presentationBackground(Color.clear) // Clear sheet background
+//                    .presentationCornerRadius(20) // Rounded corners
+                })
             }
-            .padding(.top, 10) // Optional: Add padding at the top of the VStack
+            .padding(.top, 10)
         }
     }
 }
 
 #Preview {
-    MenuView(viewModel: MenuViewModel())
+    let navigationSubject = PassthroughSubject<LoginRoute, Never>()
+    MenuView(viewModel: MenuViewModel(onNavigationSubject: navigationSubject))
 }

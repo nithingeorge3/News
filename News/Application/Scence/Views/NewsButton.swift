@@ -47,8 +47,8 @@ public struct NewsButton: View {
                 .foregroundColor(textColor)
                 .cornerRadius(cornerRadius)
                 .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
-                .scaleEffect(isPressed ? 0.95 : 1.0) // Adds press animation
         }
+        .buttonStyle(PlainButtonStyle())
         .animation(.spring(response: 0.3, dampingFraction: 0.5, blendDuration: 0), value: isPressed)
     }
 }

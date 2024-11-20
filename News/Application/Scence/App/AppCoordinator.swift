@@ -29,7 +29,7 @@ class AppCoordinator: ObservableObject {
         return AppCoordinatorView(
             appCoordinator: self,
             loginCoordinator: loginCoordinator,
-            appTabCoordinator: appTabFactory.makeAppTabCoordinator())
+            appTabCoordinator: appTabFactory.makeAppTabCoordinator(navigationSubject: navigationSubject))
     }
 
     func handleLoginRoute(_ route: LoginRoute) {
@@ -37,6 +37,8 @@ class AppCoordinator: ObservableObject {
             switch route {
             case .success:
                 self.appState = .loggedIn
+            case .logOut:
+                self.appState = .loggedOut
             default:
                 self.navigationPath.append(route)
             }

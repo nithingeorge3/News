@@ -13,7 +13,7 @@ protocol AppCoordinatorFactoryType {
 
 protocol AppCoordinatorViewFactoryType {
     func makeLoginViewCoordinator(navigationSubject: PassthroughSubject<LoginRoute, Never>) -> LoginCoordinator
-    func makeAppTabCoordinator() -> AppTabCoordinator
+    func makeAppTabCoordinator(navigationSubject: PassthroughSubject<LoginRoute, Never>) -> AppTabCoordinator
 }
 
 extension AppEnvironment : AppCoordinatorFactoryType {
@@ -45,7 +45,7 @@ class AppCoordinatorFactory : AppCoordinatorViewFactoryType {
         return loginCoordinator
     }
     
-    func makeAppTabCoordinator() -> AppTabCoordinator {
-        AppTabCoordinatorFactory().makeAppTabCoordinator()
+    func makeAppTabCoordinator(navigationSubject: PassthroughSubject<LoginRoute, Never>) -> AppTabCoordinator {
+        AppTabCoordinatorFactory().makeAppTabCoordinator(navigationSubject: navigationSubject)
     }
 }

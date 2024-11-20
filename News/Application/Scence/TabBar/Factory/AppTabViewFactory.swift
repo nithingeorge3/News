@@ -47,8 +47,8 @@ extension AppTabViewFactory: TabProvider {
     func view(for tabID: UUID) -> AnyView {
         // Find the coordinator whose `tabItem` matches the `tabID`
         guard let coordinator = coordinators.first(where: { $0.tabItem.id == tabID }) else {
-            return AnyView(Text("Unknown Tab").foregroundColor(.black)) // Fallback view
+            return AnyView(Text("Unknown Tab").foregroundColor(.black))
         }
-        return coordinator.start() as! AnyView // Generate the view using the coordinator
+        return coordinator.start() as! AnyView
     }
 }

@@ -39,7 +39,7 @@ struct AppCoordinatorView: View {
                     switch route {
                     case .signUp:
                         SignUpView()
-                    @unknown default:
+                    default:
                         fatalError("Unhandled route: \(route)")
                     }
                 }

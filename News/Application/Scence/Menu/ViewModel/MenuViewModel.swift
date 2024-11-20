@@ -9,8 +9,13 @@ import Combine
 
 class MenuViewModel: ObservableObject {
     
-    func performLogOut() {
-        print("LOGOUT!!!")
+    private var navigationSubject: PassthroughSubject<LoginRoute, Never>
+    
+    init(onNavigationSubject: PassthroughSubject<LoginRoute, Never>) {
+        self.navigationSubject = onNavigationSubject
     }
     
+    func performLogOut() {
+        navigationSubject.send(.logOut)
+    }
 }
