@@ -7,32 +7,22 @@
 
 import SwiftUI
 
-//class DashboardCoordinator: BaseCoordinator {
-//    private let navigationCoordinator: NavigationCoordinator
-//    private let viewModelFactory: HomeViewModelFactory
-//
-//    init(navigationCoordinator: NavigationCoordinator, viewModelFactory: HomeViewModelFactory) {
-//        self.navigationCoordinator = navigationCoordinator
-//        self.viewModelFactory = viewModelFactory
-//    }
-//
-//    override func start() {
-//        navigationCoordinator.goToHome()
-//    }
-//}
-
-class NewsListCoordinator: Coordinator {
+class NewsListCoordinator: Coordinator, TabItemProvider {
+    
     private let newsListViewFactory: NewsListViewFactoryType
-    private let newsListViewModelFactory: NewsListViewModelFactory
+    private let _tabItem: TabItem
+    
+    var tabItem: TabItem {
+        _tabItem
+    }
     
     init(newsListViewFactory: NewsListViewFactoryType,
-         newsListViewModelFactory: NewsListViewModelFactory
-    ) {
+         tabItem: TabItem) {
         self.newsListViewFactory = newsListViewFactory
-        self.newsListViewModelFactory = newsListViewModelFactory
+        _tabItem = tabItem
     }
 
     func start() -> some View {
-        newsListViewFactory.makeNewsListView(listViewModelFactory: newsListViewModelFactory)
+        newsListViewFactory.makeNewsListView()
     }
 }

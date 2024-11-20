@@ -12,12 +12,18 @@ protocol MessagesCoordinatorType {
     func makeMessageCoordinator() -> MessagesCoordinator
 }
 
-class MessagesCoordinator: Coordinator {
+class MessagesCoordinator: Coordinator, TabItemProvider {
     
     private var messagesViewfactory: MessagesViewFactoryType
+    private let _tabItem: TabItem
     
-    init(messagesViewfactory: MessagesViewFactoryType) {
+    var tabItem: TabItem {
+        _tabItem
+    }
+    
+    init(messagesViewfactory: MessagesViewFactoryType, tabItem: TabItem) {
         self.messagesViewfactory = messagesViewfactory
+        _tabItem = tabItem
     }
     
     func start() -> some View {

@@ -8,10 +8,10 @@
 import SwiftUI
 import Combine
 
-protocol LoginViewProtocol: View {
-    var viewModel: LoginViewModel { get }
-}
-
+//protocol LoginViewProtocol: View {
+//    var viewModel: LoginViewModel { get }
+//}
+//
 struct LoginView: View {//}, LoginViewProtocol {
     
     @ObservedObject var viewModel: LoginViewModel
@@ -67,7 +67,7 @@ struct LoginView: View {//}, LoginViewProtocol {
             .padding(.horizontal)
             
             Button(action: {
-                viewModel.login()
+                viewModel.performLogin()
             }) {
                 Text("Login Button Title")
                     .font(.headline)
@@ -87,7 +87,7 @@ struct LoginView: View {//}, LoginViewProtocol {
                     .foregroundColor(.gray)
                 
                 Button(action: {
-                    // Handle sign up action here
+                    viewModel.performSignUp()
                 }) {
                     Text("Sign Up buttton title")
                         .foregroundColor(.blue)
@@ -95,11 +95,10 @@ struct LoginView: View {//}, LoginViewProtocol {
             }
             .padding(.bottom, 40)
         }
-        .navigationTitle("LOGIN")
         .padding()
     }
 }
 
-#Preview {
-    LoginView(viewModel: LoginViewModel())
-}
+//#Preview {
+//    LoginView(viewModel: LoginViewModel())
+//}

@@ -6,27 +6,21 @@
 //
 import SwiftUI
 
-//class HomeViewFactory {
-//    private let viewModelFactory: HomeViewModelFactory
-//
-//    init(viewModelFactory: HomeViewModelFactory) {
-//        self.viewModelFactory = viewModelFactory
-//    }
-//
-//    func makeHomeView() -> some View {
-//        let viewModel = viewModelFactory.makeHomeViewModel()
-//        return HomeView(viewModel: viewModel)
-//    }
-//}
-
 protocol NewsListViewFactoryType {
-    func makeNewsListView(listViewModelFactory: NewsListViewModelFactoryType) -> NewsListView
+    func makeNewsListView() -> NewsListView
 }
 
 class NewsListViewFactory: NewsListViewFactoryType {
-    func makeNewsListView(listViewModelFactory: NewsListViewModelFactoryType) -> NewsListView { //some View {
+    
+    let newsListViewModelFactory: NewsListViewModelFactory
+    
+    init(newsListViewModelFactory: NewsListViewModelFactory) {
+        self.newsListViewModelFactory = newsListViewModelFactory
+    }
+    
+    func makeNewsListView() -> NewsListView { //some View {
         
-        let newsListViewModel = listViewModelFactory.makeNewsListViewModel()
+        let newsListViewModel = newsListViewModelFactory.makeNewsListViewModel()
         return NewsListView(viewModel: newsListViewModel)
     }
 }

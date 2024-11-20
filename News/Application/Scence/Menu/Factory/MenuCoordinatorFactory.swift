@@ -18,6 +18,7 @@ class MenuCoordinatorFactory: MenuCoordinatorFactoryType {
     }
     
     func makeMenuCoordinator() -> MenuCoordinator {
-        MenuCoordinator(menuViewFactory: menuViewFactory)
+        let tabItem = TabItem(title: "Menu", icon: "line.horizontal.3", badgeCount: nil, color: .black)
+        return MenuCoordinator(menuViewFactory: menuViewFactory, tabItem: tabItem)
     }
 }

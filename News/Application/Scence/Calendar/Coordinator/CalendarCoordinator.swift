@@ -7,12 +7,18 @@
 
 import SwiftUI
 
-class CalendarCoordinator: Coordinator {
+class CalendarCoordinator: Coordinator, TabItemProvider {
     
     private var calendarViewFactory: CalendarViewFactoryType
+    private let _tabItem: TabItem
     
-    init(calendarViewFactory: CalendarViewFactoryType) {
+    var tabItem: TabItem {
+        _tabItem
+    }
+    
+    init(calendarViewFactory: CalendarViewFactoryType, tabItem: TabItem) {
         self.calendarViewFactory = calendarViewFactory
+        _tabItem = tabItem
     }
     
     func start() -> some View {

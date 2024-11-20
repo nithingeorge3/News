@@ -8,6 +8,11 @@
 import Foundation
 import KeychainAccess
 
+enum AppState {
+    case loggedOut
+    case loggedIn
+}
+
 struct AppEnvironment {
     let userSession: UserSessionType
 }

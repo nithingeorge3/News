@@ -12,10 +12,11 @@ import Combine
 class LoginViewModelTests: XCTestCase {
     var viewModel: LoginViewModel!
     var cancellables: Set<AnyCancellable> = [] //for managing Combine subscriptions
-
+    let navigationSubject = PassthroughSubject<LoginRoute, Never>()
+    
     override func setUp() {
         super.setUp()
-        viewModel = LoginViewModel()
+        viewModel = LoginViewModel(onNavigationSubject: navigationSubject)
     }
 
     override func tearDown() {

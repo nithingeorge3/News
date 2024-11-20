@@ -16,7 +16,7 @@ struct CalendarView: View {
     
     var body: some View {
         VStack {
-            Text("Hello, World!")
+            Text("CalendarView")
                 .font(.largeTitle)
                 .foregroundColor(.gray)
         }

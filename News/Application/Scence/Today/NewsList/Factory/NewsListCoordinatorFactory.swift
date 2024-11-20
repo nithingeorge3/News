@@ -11,16 +11,13 @@ protocol NewsListCoordinatorFactoryType {
 
 class NewsListCoordinatorFactory: NewsListCoordinatorFactoryType {
     private let newsListViewFactory: NewsListViewFactoryType
-    private let newsListViewModelFactory: NewsListViewModelFactory
     
-    init(newsListViewFactory: NewsListViewFactoryType,
-         newsListViewModelFactory: NewsListViewModelFactory
-    ) {
+    init(newsListViewFactory: NewsListViewFactoryType) {
         self.newsListViewFactory = newsListViewFactory
-        self.newsListViewModelFactory = newsListViewModelFactory
     }
 
     func makeNewsListCoordinator() -> NewsListCoordinator {
-        return NewsListCoordinator(newsListViewFactory: newsListViewFactory, newsListViewModelFactory: newsListViewModelFactory)
+        let tabItem = TabItem(title: "Today", icon: "checkmark.square", badgeCount: nil, color: .black)
+        return NewsListCoordinator(newsListViewFactory: newsListViewFactory, tabItem: tabItem)
     }
 }

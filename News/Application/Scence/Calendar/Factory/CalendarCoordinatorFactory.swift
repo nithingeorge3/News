@@ -18,6 +18,7 @@ class CalendarCoordinatorFactory: CalendarCoordinatorFactoryTye {
     }
     
     func makeCalendarCoordinator() -> CalendarCoordinator {
-        CalendarCoordinator(calendarViewFactory: calendarViewFactory)
+        let tabItem = TabItem(title: "Calendar", icon: "calendar", badgeCount: nil, color: .black)
+        return CalendarCoordinator(calendarViewFactory: calendarViewFactory, tabItem: tabItem)
     }
 }

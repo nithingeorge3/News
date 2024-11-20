@@ -5,30 +5,32 @@
 //  Created by Nitin George on 03/11/2024.
 //
 
+import Combine
+
 protocol LoginCoordinatorFactoryType {
     func makeLoginCoordinator() -> LoginCoordinator
 }
 
-class LoginCoordinatorFactory: LoginCoordinatorFactoryType {
+class LoginCoordinatorFactory : LoginCoordinatorFactoryType {
     private let navigationCoordinator: NavigationCoordinator
     private let loginViewFactory: LoginViewFactory
-    private let newsListCoordinatorFactory: NewsListCoordinatorFactory
-
+    private var navigationSubject: PassthroughSubject<LoginRoute, Never>
+    
     init(
         navigationCoordinator: NavigationCoordinator,
         loginViewFactory: LoginViewFactory,
-        newsListCoordinatorFactory: NewsListCoordinatorFactory
+        navigationSubject: PassthroughSubject<LoginRoute, Never>
     ) {
         self.navigationCoordinator = navigationCoordinator
         self.loginViewFactory = loginViewFactory
-        self.newsListCoordinatorFactory = newsListCoordinatorFactory
+        self.navigationSubject = navigationSubject
     }
 
     func makeLoginCoordinator() -> LoginCoordinator {
         return LoginCoordinator(
             navigationCoordinator: navigationCoordinator,
             loginViewFactory: loginViewFactory,
-            newsListCoordinatorFactory: newsListCoordinatorFactory
+            navigationSubject: navigationSubject
         )
     }
 }

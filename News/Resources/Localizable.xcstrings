@@ -60,6 +60,15 @@
         }
       }
     },
+    "%lld" : {
+
+    },
+    "CalendarView" : {
+
+    },
+    "Cancel" : {
+
+    },
     "Create new account title" : {
       "localizations" : {
         "en" : {
@@ -70,19 +79,13 @@
         }
       }
     },
-    "Details for %@" : {
-
-    },
-    "Hello, World!" : {
-
-    },
     "ListingView" : {
 
     },
     "Loading..." : {
 
     },
-    "LOGIN" : {
+    "Log Out" : {
 
     },
     "Login Button Title" : {
@@ -141,9 +144,6 @@
         }
       }
     },
-    "MenuView" : {
-
-    },
     "MessagesView" : {
 
     },
@@ -180,6 +180,15 @@
           }
         }
       }
+    },
+    "SignUpView" : {
+
+    },
+    "TEST" : {
+
+    },
+    "Unknown Tab" : {
+
     },
     "Username Title" : {
       "comment" : "Login Username Title",
