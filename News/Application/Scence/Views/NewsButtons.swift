@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct NewsButton: View {
+public struct LogOutButton: View {
     
     let title: String
     let action: () -> Void

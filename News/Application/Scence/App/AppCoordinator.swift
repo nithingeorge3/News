@@ -29,7 +29,7 @@ class AppCoordinator: ObservableObject {
         return AppCoordinatorView(
             appCoordinator: self,
             loginCoordinator: loginCoordinator,
-            appTabCoordinator: appTabFactory.makeAppTabCoordinator(navigationSubject: navigationSubject))
+            appTabCoordinator: appTabFactory.makeAppTabCoordinator(navigationSubject: navigationSubject)) // i think we just nee dto load Tab creation after login Success
     }
 
     func handleLoginRoute(_ route: LoginRoute) {

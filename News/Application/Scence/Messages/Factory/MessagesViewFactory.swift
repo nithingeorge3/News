@@ -13,14 +13,13 @@ protocol MessagesViewFactoryType {
 
 class MessagesViewFactory: MessagesViewFactoryType {
     
-    private var messagesViewModelFactory: MessagesViewModelFactoryType
+    private var messagesViewModel: MessagesViewModel
     
-    init(messagesViewModelFactory: MessagesViewModelFactoryType) {
-        self.messagesViewModelFactory = messagesViewModelFactory
+    init(messagesViewModel: MessagesViewModel) {
+        self.messagesViewModel = messagesViewModel
     }
     
     func makeMessagesView() -> MessagesView {
-        MessagesView(viewModel: messagesViewModelFactory.makeMessagesViewModel())
+        MessagesView(viewModel: messagesViewModel)
     }
-
 }

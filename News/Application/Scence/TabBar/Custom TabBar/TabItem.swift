@@ -6,11 +6,23 @@
 //
 
 import SwiftUI
+import Combine
 
-struct TabItem: Identifiable {
+protocol TabItemProvider: Coordinator {
+    var tabItem: TabItem { get }
+}
+
+class TabItem: Identifiable, ObservableObject {
     let id = UUID()
     let title: String
     let icon: String
-    let badgeCount: Int?
+    @Published var badgeCount: Int?
     let color: Color
+    
+    init(title: String, icon: String, badgeCount: Int?, color: Color) {
+        self.title = title
+        self.icon = icon
+        self.badgeCount = badgeCount
+        self.color = color
+    }
 }
