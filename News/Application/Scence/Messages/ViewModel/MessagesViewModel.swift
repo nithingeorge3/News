@@ -12,6 +12,6 @@ class MessagesViewModel: ObservableObject {
     @Published var unreadMessagesCount: Int = 0
     
     func fetchUnreadMessages() {
-        unreadMessagesCount = 10 // need to impliment API call
+        unreadMessagesCount = 0 // need to impliment API call
     }
 }

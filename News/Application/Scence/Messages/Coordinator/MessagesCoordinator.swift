@@ -14,9 +14,9 @@ protocol MessagesCoordinatorType {
 
 class MessagesCoordinator: Coordinator, TabItemProvider {
     
+    private let _tabItem: TabItem
     let messagesViewModel: MessagesViewModel
     var messagesViewfactory: MessagesViewFactoryType
-    private let _tabItem: TabItem
     var cancellables: Set<AnyCancellable> = []
     
     var tabItem: TabItem {
