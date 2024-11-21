@@ -31,8 +31,6 @@ class AppCoordinatorFactory : AppCoordinatorViewFactoryType {
         // Factories
         let loginViewModelFactory = LoginViewModelFactory(navigationSubject: navigationSubject)
         let loginViewFactory = LoginViewFactory(viewModel: loginViewModelFactory.makeLoginViewModel())
-
-        // Actually NewListCoordinator should create from LoginCoordinator
         
         let loginCoordinatorFactory = LoginCoordinatorFactory(
             navigationCoordinator: navigationCoordinator,
