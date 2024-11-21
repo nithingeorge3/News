@@ -23,5 +23,8 @@ struct MessagesView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.gray.opacity(0.1))
+        .onAppear {
+            viewModel.fetchUnreadMessages()
+        }
     }
 }

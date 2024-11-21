@@ -11,14 +11,16 @@ import Combine
 import SwiftUI
 
 struct BottomLogOutSheet: View {
-    var onLogout: () -> Void
-    var onCancel: () -> Void
+    
+    let logOutSubject: PassthroughSubject<Void, Never>
+    let cancelSubject: PassthroughSubject<Void, Never>
+    
+//    var onCancel: () -> Void
     
     var body: some View {
         VStack(spacing: 20) { // Use spacing for the gap between buttons
-            // Log Out Button
             Button(action: {
-                onLogout()
+                logOutSubject.send()
             }) {
                 Text("Log Out")
                     .font(.system(size: 18, weight: .semibold))
@@ -31,9 +33,9 @@ struct BottomLogOutSheet: View {
                     )
             }
             
-            // Cancel Button
             Button(action: {
-                onCancel()
+                cancelSubject.send()
+//                onCancel()
             }) {
                 Text("Cancel")
                     .font(.system(size: 18, weight: .semibold))

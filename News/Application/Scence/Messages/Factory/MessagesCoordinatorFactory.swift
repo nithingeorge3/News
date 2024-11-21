@@ -18,7 +18,7 @@ class MessagesCoordinatorFactory: MessagesCoordinatorFactoryType {
     }
     
     func makeMessagesCoordinator() -> MessagesCoordinator {
-        let tabItem = TabItem(title: "Messages", icon: "message", badgeCount: 1, color: .black)
+        let tabItem = TabItem(title: "Messages", icon: "message", badgeCount: 10, color: .black)
         return MessagesCoordinator(messagesViewfactory: messagesViewFactory, tabItem: tabItem)
     }
 }

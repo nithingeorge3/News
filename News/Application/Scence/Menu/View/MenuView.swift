@@ -17,6 +17,9 @@ struct MenuView: View {
     
     @State private var showBottomSheet = false
     @ObservedObject var viewModel: MenuViewModel
+    private let logOutSubject = PassthroughSubject<Void, Never>()
+    private let cancelSubject = PassthroughSubject<Void, Never>()
+    private let cancellables = Set<AnyCancellable>()
     
     let items = [
         SidebarItem(title: "Item 1"),
@@ -41,8 +44,7 @@ struct MenuView: View {
                 .listStyle(.plain)
                 .navigationTitle("Sidebar")
 
-                // Logout Button directly below the List
-                NewsButton(
+                LogOutButton(
                     title: "LogOut",
                     backgroundColor: .black,
                     textColor: .white,
@@ -54,24 +56,20 @@ struct MenuView: View {
                 .padding(.bottom, 40) // Optional: Add spacing from the bottom
                 
                 .sheet(isPresented: $showBottomSheet, content: {
-                    BottomLogOutSheet(
-                        onLogout: {
-                            print("Logged Out")
-                            showBottomSheet = false
-                            viewModel.performLogOut()
-                        },
-                        onCancel: {
-                            print("Cancelled")
-                            showBottomSheet = false
-                        }
-                    )
-                    .background(Color.clear) // Transparent background for the sheet
-                    .presentationDetents([.fraction(0.25)]) // Adjust height dynamically
-                    .presentationBackground(Color.clear) // Clear sheet background
-//                    .presentationCornerRadius(20) // Rounded corners
+                    BottomLogOutSheet(logOutSubject: logOutSubject, cancelSubject: cancelSubject)
+                    .background(Color.clear)
+                    .presentationDetents([.fraction(0.25)])
+                    .presentationBackground(Color.clear)
                 })
             }
             .padding(.top, 10)
+        }
+        .onReceive(logOutSubject) { _ in  //IMP .sink is Best for ViewModels and logic
+            showBottomSheet = false
+            viewModel.performLogOut()
+        }
+        .onReceive(cancelSubject) { _ in
+            showBottomSheet = false
         }
     }
 }

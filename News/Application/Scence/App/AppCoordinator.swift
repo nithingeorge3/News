@@ -23,13 +23,9 @@ class AppCoordinator: ObservableObject {
     }
 
     func start() -> some View {
-        let loginCoordinator = AppCoordinatorFactory().makeLoginViewCoordinator(navigationSubject: navigationSubject)
-        let appTabFactory = AppCoordinatorFactory()
-                                                                               
-        return AppCoordinatorView(
-            appCoordinator: self,
-            loginCoordinator: loginCoordinator,
-            appTabCoordinator: appTabFactory.makeAppTabCoordinator(navigationSubject: navigationSubject))
+        return AppCoordinatorView(appCoordinator: self,
+                                  appTabFactory: AppCoordinatorFactory(),
+                                  navigationSubject: navigationSubject)
     }
 
     func handleLoginRoute(_ route: LoginRoute) {

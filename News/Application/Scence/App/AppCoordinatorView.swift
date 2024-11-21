@@ -11,8 +11,8 @@ import NetworkModule
 
 struct AppCoordinatorView: View {
     @ObservedObject var appCoordinator: AppCoordinator
-    var loginCoordinator: LoginCoordinator
-    var appTabCoordinator: AppTabCoordinator
+    let appTabFactory: AppCoordinatorFactory
+    let navigationSubject: PassthroughSubject<LoginRoute, Never>
     
     var body: some View {
         Group {
@@ -20,7 +20,7 @@ struct AppCoordinatorView: View {
             case .loggedOut:
                 loginFlow
             case .loggedIn:
-                appTabCoordinator.start()
+                appTabFactory.makeAppTabCoordinator(navigationSubject: navigationSubject).start()
             }
         }
         .onAppear {
@@ -34,7 +34,7 @@ struct AppCoordinatorView: View {
 
     private var loginFlow: some View {
         NavigationStack(path: appCoordinator.navigationPathBinding) {
-            loginCoordinator.start()
+            appTabFactory.makeLoginViewCoordinator(navigationSubject: navigationSubject).start()
                 .navigationDestination(for: LoginRoute.self) { route in
                     switch route {
                     case .signUp:
