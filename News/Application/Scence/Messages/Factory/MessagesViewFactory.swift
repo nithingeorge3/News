@@ -8,12 +8,13 @@
 import SwiftUI
 
 protocol MessagesViewFactoryType {
+    var messagesViewModel: MessagesViewModel { get }
     func makeMessagesView() -> MessagesView
 }
 
 class MessagesViewFactory: MessagesViewFactoryType {
     
-    private var messagesViewModel: MessagesViewModel
+    var messagesViewModel: MessagesViewModel
     
     init(messagesViewModel: MessagesViewModel) {
         self.messagesViewModel = messagesViewModel

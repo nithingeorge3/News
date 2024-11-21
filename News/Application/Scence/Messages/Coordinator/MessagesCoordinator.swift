@@ -26,7 +26,7 @@ class MessagesCoordinator: Coordinator, TabItemProvider {
     init(messagesViewfactory: MessagesViewFactoryType, tabItem: TabItem) {
         self.messagesViewfactory = messagesViewfactory
         _tabItem = tabItem
-        self.messagesViewModel = MessagesViewModelFactory().makeMessagesViewModel()
+        self.messagesViewModel = self.messagesViewfactory.messagesViewModel
     }
     
     func start() -> some View {

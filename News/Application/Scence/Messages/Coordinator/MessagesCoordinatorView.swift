@@ -14,8 +14,6 @@ struct MessagesCoordinatorView: View {
     var body: some View {
         messagesCoordinator.messagesViewfactory.makeMessagesView()
         .onAppear {
-            messagesCoordinator.messagesViewModel.fetchUnreadMessages()
-            
             messagesCoordinator.messagesViewModel.$unreadMessagesCount
                 .sink { count in
                     messagesCoordinator.tabItem.badgeCount = count

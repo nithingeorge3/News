@@ -30,7 +30,8 @@ class AppTabCoordinatorFactory: AppTabCoordinatorFactoryType {
         let listingCoordinatorFactory = ListingCoordinatorFactory(listingViewFactory: listingViewFactory)
         let listingCoordinator = listingCoordinatorFactory.makeListingCoordinator()
         
-        let messagesViewFactory = MessagesViewFactory(messagesViewModel: MessagesViewModelFactory().makeMessagesViewModel())
+        let messagesViewModel = MessagesViewModelFactory().makeMessagesViewModel()
+        let messagesViewFactory = MessagesViewFactory(messagesViewModel: messagesViewModel)
         let messagesCoordinatorFactory = MessagesCoordinatorFactory(messagesViewFactory: messagesViewFactory)
         let messagesCoordinator = messagesCoordinatorFactory.makeMessagesCoordinator()
         
